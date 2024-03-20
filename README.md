@@ -3,7 +3,7 @@
 #### Membros:
 - Ester Sara (Back-end, BD)
 - Filipe Pirola (Front-end, Design)
-- Milena (Front-end, Design)
+- Milena Corrêa Moreira (Front-end, Design)
 - Lucas Sacramento (Back-end, BD)
 
 #### Tecnologias

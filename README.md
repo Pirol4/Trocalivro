@@ -1,8 +1,8 @@
 # Trocalivro
 
 #### Membros:
-- Ester Sara (Back-end, BD)
-- Filipe Pirola (Front-end, Design)
+- Ester Sara Assis Silva (Back-end, BD)
+- Filipe Pirola Santos (Front-end, Design)
 - Milena Corrêa Moreira (Front-end, Design)
 - Lucas Santana do Carmo Sacramento (Back-end, BD)
 

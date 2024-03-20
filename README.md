@@ -4,7 +4,7 @@
 - Ester Sara (Back-end, BD)
 - Filipe Pirola (Front-end, Design)
 - Milena Corrêa Moreira (Front-end, Design)
-- Lucas Sacramento (Back-end, BD)
+- Lucas Santana do Carmo Sacramento (Back-end, BD)
 
 #### Tecnologias
 - Front-end: HTML, CSS, JavaScript

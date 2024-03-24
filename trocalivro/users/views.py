@@ -15,6 +15,7 @@ def db_test(request):
     }
     return HttpResponse(template.render(context, request))
 
+# função responsável por exibir os livros na pagina books.html
 def list_books(request):
     books = Book.objects.order_by('name')
     

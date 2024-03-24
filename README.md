@@ -72,7 +72,7 @@ Seu funcionamento principal será com base em uma plataforma onde o usuário pod
     
     **Tarefas e responsáveis**:
     
-    1. Implementar funcionalidade de pesquisar livros no frontend [Filipe]
+    1. Implementar funcionalidade de pesquisar livros no frontend [Milena]
     2. Implementar funcionalidade de listar livros coerentes com a pesquisa no backend [Lucas&Ester]
 
 

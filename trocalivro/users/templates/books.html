@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Books</title>
+</head>
+<body>
+    <h1>Books</h1>
+    <ul>
+        {% for book in books %}
+            
+            <li><strong>{{ book.name }}</strong> <br>
+                Description: {{ book.description }} <br>
+                Owner book: {{ book.owner.firstname }} <br>
+                Status: {{book.status}}
+                <p></p>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

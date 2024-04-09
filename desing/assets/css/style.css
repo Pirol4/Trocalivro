@@ -28,10 +28,10 @@ body {
     justify-content: center;
     align-items: flex;
     padding: 3rem;
-    background: #283044; /* Adicione um fundo branco transparente para o formulário */
+    background: #283044;
     box-shadow: 15px 15px 0px #BFA89E;
-    border-radius: 20px; /* Adicione bordas arredondadas ao formulário */
-    margin: 0 auto; /* centraliza horizontalmente */
+    border-radius: 20px;
+    margin: 0 auto;
 }
 
 .form-header {

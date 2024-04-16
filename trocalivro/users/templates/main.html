@@ -1,9 +1,87 @@
 <!DOCTYPE html>
-<html>
-<body>
+<html lang="pt-BR">
 
-<h1>Hello World!</h1>
-<p>Welcome to my first Django project!</p>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Milena Moreira">
+  <meta name="description" content="">
+  <link rel="stylesheet" href="css/header.css">
+  <title>trocalivro</title>
+</head>
+
+<body>
+  <!--cabeçalho-->
+  <header>
+    <div class="login-container">
+      <h1 class="site-logo">trocalivro</h1>
+      <nav>
+        <button class="login-btn" title="login"><a href="#" id="login">entrar</a></button>
+      </nav>
+    </div> 
+  </header>
+  <!--banner-->
+  <section class="main-card">
+    
+    <div class="main-card-heading">
+        <h1> Troque um livro velho por uma nova leitura</h1>
+    </div>
+    <div class="signup">
+      <div class="signup-text">
+        <h3>Você não precisa comprar livros para descobrir leituras incríveis</h3>
+        <h3> Seja um membro da nossa comunidade e troque seus livros antigos por livros que ainda não leu</h3>
+      </div>
+      <nav>
+        <button class="signup-btn" title="signup"><a href="#" id="signup">começar</a></button>
+      </nav>
+      </div>
+      <nav>
+    </div>
+
+    </section>
+  <!--livros disponiveis-->
+  <section class="books">
+    <h2>livros disponíveis</h2>
+    <div class="books-container">
+        <div class="book">
+            <div class="book-image-flex">
+                <img src="https://m.media-amazon.com/images/I/71ssdjzNbXL._AC_UF1000,1000_QL80_.jpg" alt="" class="book-image">
+            </div>
+            <h3 class="book-title">A Amiga Genial</h3>
+            <p class="author-name">Elena Ferrante</p>
+            <div class="book-btns-flex">
+                <button class="swap-btn">solicitar troca</button>
+            </div>
+        </div>
+        <div class="book">
+          <div class="book-image-flex">
+              <img src="https://m.media-amazon.com/images/I/71ssdjzNbXL._AC_UF1000,1000_QL80_.jpg" alt="" class="book-image">
+          </div>
+          <h3 class="book-title">A Amiga Genial</h3>
+          <p class="author-name">Elena Ferrante</p>
+          <div class="book-btns-flex">
+              <button class="swap-btn">solicitar troca</button>
+          </div>
+      </div>
+      <div class="book">
+        <div class="book-image-flex">
+            <img src="https://m.media-amazon.com/images/I/71ssdjzNbXL._AC_UF1000,1000_QL80_.jpg" alt="" class="book-image">
+        </div>
+        <h3 class="book-title">A Amiga Genial</h3>
+        <p class="author-name">Elena Ferrante</p>
+        <div class="book-btns-flex">
+            <button class="swap-btn">solicitar troca</button>
+        </div>
+    </div>
+  </section>
+
+  <!--rodapé-->
+  <footer>
+    <div class="footer-content">
+      <p id="copyright">© 2024 trocalivro</p>
+    </div>
+  </footer>
 
 </body>
+
 </html>

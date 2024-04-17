@@ -20,7 +20,11 @@
           {% block sidebar %}
             <ul class="sidebar-nav">
               <li><a href="{% url 'index' %}">Home</a></li>
-              <li><a href="">Cadastrar</a></li>
+              {% if user.is_authenticated %}
+                <li><a href="{% url 'users-profile' %}">Perfil</a></li>
+              {% else %}
+                <li><a href="{% url 'login' %}">Cadastro</a></li>
+              {% endif %}
             </ul>
           {% endblock %}
         </div>

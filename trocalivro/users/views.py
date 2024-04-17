@@ -1,7 +1,8 @@
 from django.template import loader
 from django.http import HttpResponse
-from .models import User, Book, Address
+from .models import User, Book
 from django.shortcuts import render
+from users.forms import RegisterUserForm
 
 def index(request):
     template = loader.get_template('main.html')
@@ -22,3 +23,14 @@ def list_books(request):
     context = {'books': books}
 
     return render(request, 'books.html', context)
+
+def add_user(request):
+    if request.method == 'POST':
+        form = RenewBookForm(request.POST)
+    
+    context = {
+        'form': form
+    }
+
+    template = loader.get_template('register_user_template.html')
+    return HttpResponse(template.render())

@@ -22,7 +22,13 @@
     <ul>
       {% for book in user_books %}
         <ul>  
-          <a href="{% url 'book-detail' id=book.id %}">{{ book.title }}</a>
+          <a href="{% url 'book-detail' id=book.id %}">
+            {% if book.image %}
+                <img src="{{ book.image.url }}" alt="{{ book.title }}">
+            {% else %}
+                <p>No image available</p>
+            {% endif %}
+            <p>{{ book.title }}</p>
         </ul>  
       {% endfor %}
     </ul>

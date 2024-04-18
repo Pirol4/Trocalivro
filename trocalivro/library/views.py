@@ -4,7 +4,7 @@ from django.shortcuts import get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
-from library.forms import SignUpForm, BookForm
+from library.forms import SignUpForm, BookForm, EditProfile
 from library.models import Book, Profile
 
 def index(request):
@@ -47,7 +47,19 @@ def profile(request):
 
 @login_required
 def edit_profile(request):
-    return render(request, 'edit_profile.html')
+    
+    user = request.user
+    profile = user.profile
+
+    if request.method == 'POST':
+        form = EditProfile(request.POST, request.FILES, instance = profile)
+        if form.is_valid():
+            form.save()
+        return redirect('users-profile')
+    else:
+        form = EditProfile(instance=profile)
+
+    return render(request, 'edit_profile.html', {'form': form})
 
 @login_required
 def book_add(request):

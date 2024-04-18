@@ -4,7 +4,7 @@ from django.shortcuts import get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
-from library.forms import SignUpForm
+from library.forms import SignUpForm, BookForm
 from library.models import Book, Profile
 
 def index(request):
@@ -51,7 +51,16 @@ def edit_profile(request):
 @login_required
 def book_add(request):
     # Adicionar aqui adição de livro [Lucas]
-    return render(request, 'book_add.html')
+    if request.method == 'POST':
+        form = BookForm(request.POST, request.FILES)
+        if form.is_valid():
+            book = form.save(commit=False)
+            book.owner = request.user.profile
+            book.save()
+            return redirect('book-detail', id=book.pk)
+    else:
+        form = BookForm()
+    return render(request, 'book_add.html', {'form':form})
 
 @login_required
 def my_books(request):

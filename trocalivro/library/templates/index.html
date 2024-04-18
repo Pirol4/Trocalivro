@@ -1,0 +1,21 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Trocalivro</h1>
+  <p>Nossos livros cadastrados:</p>
+  <ul>
+    <li><strong>Books:</strong> {{ num_books }}</li>
+    {% if book_list %}
+    <ul>
+        {% for book in book_list %}
+        <li>
+            <!-- Colocar imagens dos livros, etc -->
+            <a href="book/{{ book.id }}">{{ book.title }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+        <p>There are no books in the library.</p>
+    {% endif %}
+    </ul>
+{% endblock %}

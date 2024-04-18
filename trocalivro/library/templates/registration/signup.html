@@ -9,8 +9,10 @@
     <link rel="stylesheet" href="{% static 'css/signup_style.css' %}" />
     <title>Cadastro</title>
 </head>
+
 <body>
-    <div class="container-fluid">
+    <header>
+      <div class="container-fluid">
         <div class="row">
           <div class="col-sm-2">
             {% block sidebar %}
@@ -25,7 +27,9 @@
             {% endblock %}
           </div>
         </div>
-    </div>
+      </div>
+    </header>
+
     <div class="container">
         <div class="form">
             <div class="form-header">
@@ -47,11 +51,19 @@
                     {% endfor %}
                 </div>
                 <div class="submit-button">
-                    <input type="submit">Enviar</input>
+                    <input type="submit" value="Enviar"></input>
                 </div>
             </form>
         </div>
     </div>
+
+  <!--rodapé-->
+  <footer>
+    <div class="footer-content">
+      <p id="copyright">© 2024 trocalivro</p>
+    </div>
+  </footer>
+
 </body>
 
 </html>

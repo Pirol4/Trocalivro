@@ -16,6 +16,7 @@ class SignUpForm(UserCreationForm):
         fields = ('username', 'firstname', 'lastname', 'email', 'phone_number', 'address', 'password1', 'password2')
 
 
+# Formulario de adição do livro
 class BookForm(forms.ModelForm):
     class Meta:
         model = Book
@@ -34,5 +35,6 @@ class EditProfile(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+        # Itera sobre todas os campos e coloca todos eles como opcionais.
         for field_name in self.fields:
             self.fields[field_name].required = False

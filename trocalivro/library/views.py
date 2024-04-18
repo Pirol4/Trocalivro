@@ -47,18 +47,21 @@ def profile(request):
 
 @login_required
 def edit_profile(request):
-    
+    # associando a sessão ao usuário.
     user = request.user
     profile = user.profile
 
     if request.method == 'POST':
+        # Atribuindo formulario a instancia do usuario
         form = EditProfile(request.POST, request.FILES, instance = profile)
         if form.is_valid():
             form.save()
         return redirect('users-profile')
     else:
+        # independente se não for enviada
         form = EditProfile(instance=profile)
 
+    # exibir na pagina de edição de perfil 
     return render(request, 'edit_profile.html', {'form': form})
 
 @login_required
@@ -67,9 +70,11 @@ def book_add(request):
     if request.method == 'POST':
         form = BookForm(request.POST, request.FILES)
         if form.is_valid():
+            # Salvando as informações do formulario do livro e atribuindo ao usuário da sessão.
             book = form.save(commit=False)
             book.owner = request.user.profile
             book.save()
+            # Assim que cadastrar o livro ir para a tela com as informações dele, ou ate mesmo voltar para a tela de perfil com os livros cadastrados.
             return redirect('book-detail', id=book.pk)
     else:
         form = BookForm()

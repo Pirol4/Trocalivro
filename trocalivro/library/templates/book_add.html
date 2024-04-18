@@ -3,4 +3,9 @@
 view book_add {% endcomment %}
 {% block content %}
 <h1> Adicionar Livro </h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
 {% endblock %}

@@ -19,4 +19,11 @@
       {% csrf_token %}
       <button type="submit">Adicionar Livro</button>
     </form>
+    <ul>
+      {% for book in user_books %}
+        <ul>  
+          <a href="{% url 'book-detail' id=book.id %}">{{ book.title }}</a>
+        </ul>  
+      {% endfor %}
+    </ul>
 {% endblock %}

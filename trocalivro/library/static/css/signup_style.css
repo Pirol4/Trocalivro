@@ -1,10 +1,5 @@
-@import url(https://fonts.googleapis.com/css2?family=Abhaya+Libre&display=swap);
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: 'Abhaya Libre', serif;
-}
+@import url(header_style.css);
+@import url(footer_style.css);
 
 body {
     width: 100%;
@@ -18,44 +13,6 @@ body {
 .container {
     width: 100%;
     display: center;
-}
-
-header {
-    background-color: #FFFFFF; /* Cor de fundo azul */
-    padding: 10px 0; /* Espaçamento interno */
-    text-align: center; /* Alinhamento do texto */
-    width: 100%; /* Largura total */
-    margin: 0; /* Margem zero */
-    position: fixed; /* Fixa o cabeçalho na parte superior */
-    top: 0; /* Distância do topo */
-    z-index: 1000; /* Z-index para garantir que fique acima de outros elementos */
-}
-
-/* Estilos para a barra de navegação */
-.sidebar-nav {
-    list-style-type: none; /* Remove marcadores da lista */
-    padding: 0; /* Remove espaçamento interno da lista */
-}
-
-.sidebar-nav li {
-    display: inline-block; /* Exibe os itens da lista em linha */
-    margin-right: 20px; /* Espaçamento entre os itens */
-}
-
-.sidebar-nav li a {
-    color: #000000; /* Cor do texto branco */
-    text-decoration: none; /* Remove sublinhado dos links */
-}
-
-.sidebar-nav li a:hover {
-    text-decoration: underline; /* Adiciona sublinhado no hover dos links */
-}
-
-.container {
-    margin-top: 80px; /* Margem superior para afastar do cabeçalho */
-    margin-bottom: 100px; /* Margem inferior para afastar do rodapé */
-    height: calc(100vh - 120px); /* Altura calculada: 100% da altura da viewport menos a altura do cabeçalho e do rodapé */
-    overflow-y: auto; /* Adiciona uma barra de rolagem vertical se o conteúdo ultrapassar a altura disponível */
 }
 
 .form {
@@ -89,7 +46,7 @@ header {
     border: 1px solid #FFFFFF;
     background-color: #BFA89E;
     padding: 0.4rem 1rem; 
-    color: white;
+    color: #FFFFFF;
     cursor: pointer;
 }
 
@@ -165,51 +122,4 @@ header {
     font-size: 0.93rem;
     font-weight: 500;
     color: #FFFFFF;
-}
-
-/* Estilos para o rodapé */
-footer {
-    background-color: #FFFFFF; /* Cor de fundo cinza claro */
-    color: #000000; /* Cor do texto */
-    padding: 20px 0; /* Espaçamento interno */
-    text-align: center; /* Alinhamento do texto */
-    width: 100%; /* Largura total */
-    margin-top: 50px; /* Espaçamento do topo */
-    position: fixed; /* Posição absoluta para fixar no final da página */
-    bottom: 0; /* Fixa no final da página */
-    left: 0;
-}
-
-@media screen and (max-width: 1330px) {
-    
-    .form-image {
-        display: none;
-    }
-
-    .container {
-        width: 50%;
-    }
-
-    .form {
-        width: 100%;
-    }
-    
-}
-
-@media screen and (max-width: 1064px) {
-    
-    .container {
-        width: 90%;
-        height: auto;
-    }
-
-    .input-group {
-        flex-direction: column;
-        z-index: 5;
-        padding-right: 5rem;
-        max-height: 10rem;
-        overflow-y: scroll;
-        flex-wrap: nowrap;
-    }
-
 }

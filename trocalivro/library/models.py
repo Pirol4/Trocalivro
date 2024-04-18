@@ -16,7 +16,7 @@ class StatusBook(Enum):
 
 
 class Profile(models.Model):
-  user = models.OneToOneField(User, related_name='profile', on_delete = models.CASCADE)
+  user = models.OneToOneField(User, related_name='profile', on_delete = models.CASCADE, null=True)
   firstname = models.CharField(max_length = 255)
   lastname = models.CharField(max_length = 255)
   email = models.EmailField(default = "", null = True)
@@ -32,6 +32,12 @@ class Profile(models.Model):
   @receiver(post_save, sender=User)
   def save_user_profile(sender, instance, **kwargs):
       instance.profile.save()
+    
+  # @receiver(post_save, sender=User)
+  # def update_user_profile(sender, instance, created, **kwargs):
+  #   if created:
+  #       Profile.objects.create(user=instance)
+  #   instance.profile.save()
 
 class Book(models.Model):
   title = models.CharField(max_length = 255)

@@ -6,6 +6,10 @@
     <form method="post" action="{% url 'logout' %}">
       {% csrf_token %}
       <button type="submit">Log Out</button>
-  </form>
+    </form>
+    <form method="post" action="{% url 'book-add' %}">
+      {% csrf_token %}
+      <button type="submit">Adicionar Livro</button>
+    </form>
     {% endif %}
 {% endblock %}

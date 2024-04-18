@@ -2,12 +2,12 @@
 <html lang="pt-BR">
 
 <head>
+  <title>Perfil - trocalivro</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="author" content="Milena Moreira">
   <meta name="description" content="">
-  <link rel="stylesheet" href="css/header.css">
-  <title>trocalivro</title>
+  <link rel="stylesheet" href="">
 </head>
 
 <body>
@@ -15,6 +15,12 @@
   <header>
     <div class="home-container">
       <h1 class="site-logo">trocalivro</h1>
+      <div class="search-container">
+        <form class="search-box" method="get" action="search.html">
+            <input class="search-input" type="search" placeholder="Busque por livro ou autor" name="keyword"/>
+            <button class="search-button" title="Buscar livro"><i>Pesquisar</i></button>
+        </form>
+    </div>
       <nav>
         <button class="header-btn" title="explorar><a href="#" id="explore">Explorar</a></button>
       </nav>
@@ -28,13 +34,14 @@
         <img src="https://img.skoob.com.br/TM30msyFIWwNcvsGqSivTpr7mvI=/170x170/center/top/smart/filters:format(jpeg)/https://static-sp.skoob.com.br/img/v2/base/sem-face-m-default.gif" alt="">
       </div>
       <p class="user-name">Nome do Usuário</p>
-      <p class="user-score">0.0</p>
       <nav class="user-navbar">
-        <button class="user-navbar-btn" title="enviar livro"><a href="#" id="swap-book">Adicionar livro</a></button>
+        <button class="user-navbar-btn" title="livros recebidos"><a href="#" id="books-received">Adicionar livro</a></button>
+        <p class="navbar-subtitle">Solicitações</p>
+        <button class="user-navbar-btn" title="enviadas"><a href="#" id="sent">Enviadas</a></button>
+        <button class="user-navbar-btn" title="enviadas"><a href="#" id="received">Recebidas</a></button>
+        <p class="navbar-subtitle">Minha conta</p>
         <button class="user-navbar-btn" title="editar perfil"><a href="#" id="edit-profile">Editar perfil</a></button>
-        <button class="user-navbar-btn" title="livros enviados"><a href="#" id="books-sent">Livros enviados</a></button>
-        <button class="user-navbar-btn" title="livros recebidos"><a href="#" id="books-received">Livros recebidos</a></button>
-        <button class="user-navbar-btn" title="livros diponíveis"><a href="#" id="books-available">Livros disponíveis</a></button>
+        <button class="user-navbar-btn" title="livros enviados"><a href="#" id="books-sent">Meus livros</a></button>
         <button class="user-navbar-btn" title="sair da conta"><a href="#" id="sign-out">Sair da conta</a></
       </nav>
     </div>
@@ -42,7 +49,7 @@
 
   <!--pagina inicial padrao de perfil do usuario-->
   <section class="books">
-    <h2>Últimas trocas</h2>
+    <h2>Meus livros</h2>
     <div class="books-container">
         <div class="book">
             <div class="book-image-flex">

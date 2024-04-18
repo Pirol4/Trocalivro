@@ -23,7 +23,7 @@
               {% if user.is_authenticated %}
                 <li><a href="{% url 'users-profile' %}">Perfil</a></li>
               {% else %}
-                <li><a href="{% url 'login' %}">Cadastro</a></li>
+                <li><a href="{% url 'login' %}">Login</a></li>
               {% endif %}
             </ul>
           {% endblock %}

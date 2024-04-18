@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/signup_style.css' %}" />
+    <title>Cadastro</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-2">
+            {% block sidebar %}
+              <ul class="sidebar-nav">
+                <li><a href="{% url 'index' %}">Home</a></li>
+                {% if user.is_authenticated %}
+                  <li><a href="{% url 'users-profile' %}">Perfil</a></li>
+                {% else %}
+                  <li><a href="{% url 'login' %}">Login</a></li>
+                {% endif %}
+              </ul>
+            {% endblock %}
+          </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="form">
+            <div class="form-header">
+                <div class="title">
+                    <h1>Cadastre-se</h1>
+                    <p>Preencha seus dados</p>
+                </div>
+                <div class="subtitle">
+                </div>
+            </div>
+            <form method="post">
+                {% csrf_token %}
+                <div class="input-group">
+                    {% for field in form %}
+                        <div class="input-box">
+                            <label for="firstname">{{ field.label_tag }}</label>
+                            {{ field }} 
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="submit-button">
+                    <input type="submit">Enviar</input>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

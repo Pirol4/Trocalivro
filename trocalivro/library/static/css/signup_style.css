@@ -107,7 +107,7 @@ body {
     color: #000000be;
 }
 
-.continue-button button {
+.submit-button button {
     width: 100%;
     margin-top: 2.5rem;
     border: none;
@@ -118,11 +118,11 @@ body {
     cursor: pointer;
 }
 
-.continue-button button:hover {
+.submit-button button:hover {
     background-color: #8B786D;
 }
 
-.continue-button button a {
+.submit-button button a {
     text-decoration: none;
     font-size: 0.93rem;
     font-weight: 500;

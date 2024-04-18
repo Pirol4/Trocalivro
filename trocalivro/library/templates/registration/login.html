@@ -27,8 +27,12 @@
         <td>{{ form.password }}</td>
       </tr>
     </table>
-    <input type="submit" value="login" />
+    <input type="submit" value="Login" />
     <input type="hidden" name="next" value="{{ next }}" />
+  </form>
+  <form method="post" action="{% url 'signup' %}">
+    {% csrf_token %}
+    <button type="submit">Cadastrar</button>
   </form>
 
 {% endblock %}

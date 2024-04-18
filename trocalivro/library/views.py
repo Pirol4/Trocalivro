@@ -7,7 +7,6 @@ from django.contrib.auth.forms import UserCreationForm
 from library.forms import SignUpForm
 from library.models import Book, Profile
 
-
 def index(request):
     num_books = Book.objects.all().count()
     book_list = Book.objects.all()
@@ -39,15 +38,34 @@ def signup(request):
         form = SignUpForm()
     return render(request, 'registration/signup.html', {'form': form})
 
+
 @login_required
 def profile(request):
     # Adicionar aqui listagem de livros da pessoa [Lucas]
     return render(request, 'profile.html')
 
 @login_required
+def edit_profile(request):
+    return render(request, 'edit_profile.html')
+
+@login_required
 def book_add(request):
     # Adicionar aqui adição de livro [Lucas]
     return render(request, 'book_add.html')
+
+@login_required
+def my_books(request):
+    # Adicionar aqui adição de livro [Lucas]
+    return render(request, 'profile.html')
+
+# Colocar em cada pagina os livros que tem os status marcados  
+@login_required
+def send_books(request):
+    return render(request, 'send_books.html')
+
+@login_required
+def received_books(request):
+    return render(request, 'received_books.html')
 
 def book_detail_view(request, id):
     book = Book.objects.get(id=id)

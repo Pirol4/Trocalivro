@@ -42,7 +42,8 @@ def signup(request):
 @login_required
 def profile(request):
     # Adicionar aqui listagem de livros da pessoa [Lucas]
-    return render(request, 'profile.html')
+    user_books = Book.objects.filter(owner=request.user.profile)
+    return render(request, 'profile.html', {'user_books': user_books})
 
 @login_required
 def edit_profile(request):

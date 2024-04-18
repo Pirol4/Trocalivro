@@ -1,29 +1,18 @@
-{% extends "base_generic.html" %}
-
 {% block content %}
-  <h1>Name: {{ user.profile.firstname }}</h1>
-  {% if user.is_authenticated %}
-  <h5> Solicitações </h5>
-  <a href="{% url 'send-books' %}">Enviadas</a><br>
-  <a href="{% url 'received-books' %}">Recebidas</a>
-  <h5> Minha conta </h5>
-  <a href="{% url 'users-edit' %}">Editar perfil</a><br>
-  <a href="{% url 'users-profile' %}">Meus livros</a>
-  <form method="post" action="{% url 'logout' %}">
-    {% csrf_token %}
-    <button type="submit">Log Out</button>
-  </form>
-  {% endif %}
-  <h2>Meus livros</h2>
-    <form method="post" action="{% url 'book-add' %}">
-      {% csrf_token %}
-      <button type="submit">Adicionar Livro</button>
-    </form>
-    <ul>
+{% include "profile_generic.html" %}
+<section class="profile-page">
+  <h2 class="page-title"> Meus livros </h2>
+  <div class="books-container">
       {% for book in user_books %}
-        <ul>  
+        <div class="book">
+          <div class="book-image-flex">
+            <img src="https://m.media-amazon.com/images/I/71ssdjzNbXL._AC_UF1000,1000_QL80_.jpg" alt="" class="book-image">
+          </div>
           <a href="{% url 'book-detail' id=book.id %}">{{ book.title }}</a>
-        </ul>  
+          <!--ADICIONAR NOME DO AUTOR-->
+          <!--<p class="author-name">Elena Ferrante</p>-->
+        </div>  
       {% endfor %}
-    </ul>
+  </div>
+</section>
 {% endblock %}

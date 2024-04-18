@@ -13,23 +13,34 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
   </head>
+
   <body>
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-sm-2">
-          {% block sidebar %}
-            <ul class="sidebar-nav">
-              <li><a href="{% url 'index' %}">Home</a></li>
-              {% if user.is_authenticated %}
-                <li><a href="{% url 'users-profile' %}">Perfil</a></li>
-              {% else %}
-                <li><a href="{% url 'login' %}">Login</a></li>
-              {% endif %}
-            </ul>
-          {% endblock %}
-        </div>
-        <div class="col-sm-10">{% block content %}{% endblock %}</div>
+
+  <!--cabeçalho-->  
+  <header>
+      <div class="header-container">
+        <h1 class="site-logo"><a href="{% url 'index' %}">trocalivro</a></h1>
+        {% block sidebar %}
+          <nav>
+            {% if user.is_authenticated %}
+              <button class="header-btn" title="profile"><a href="{% url 'users-profile' %}" id="profile">Perfil</a></button>
+              <!--ADICIONAR BOTÃO DE EXPLORAR-->
+            {% else %}
+              <button class="header-btn" title="login"><a href="{% url 'login' %}" id="login">Entrar</a></button>
+            {% endif %}
+          </nav>
+        {% endblock %}
       </div>
+  </header>
+
+  <!--conteúdo das páginas filhas-->
+  <div>{% block content %}{% endblock %}</div> 
+
+  <!--rodapé-->
+  <footer>
+    <div class="footer-content">
+      <p id="copyright">© 2024 trocalivro</p>
     </div>
+  </footer>
   </body>
 </html>

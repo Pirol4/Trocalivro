@@ -44,16 +44,14 @@ def signup(request):
 @login_required
 def profile(request):
     # Adicionar aqui listagem de livros da pessoa [Lucas]
+    image_path = '/library/static/'
     user_books = Book.objects.filter(owner=request.user.profile)
     for book in user_books:
         if book.image:
-            print("Caminho original da imagem:", book.image.url)
-            if book.image.url.startswith('/library/static/'):
-                print("caiu aqui")
-                book.image_display_url = book.image.url.replace('/library/static/', '')
+            if book.image.url.startswith(image_path):
+                book.image_display_url = book.image.url.replace(image_path, '')
             else:
                 book.image_display_url = book.image.url
-            print("Caminho modificado da imagem:", book.image_display_url)
     return render(request, 'profile.html', {'user_books': user_books})
 
 @login_required

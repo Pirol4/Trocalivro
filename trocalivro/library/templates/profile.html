@@ -24,7 +24,9 @@
         <ul>  
           <a href="{% url 'book-detail' id=book.id %}">
             {% if book.image %}
-                <img src="{{ book.image.url }}" alt="{{ book.title }}">
+                {%load static%}
+                <img src="{%static  'book.image_display_url' %}" alt="{{ book.title }}">
+                <p>{{ book.image_display_url }}</p>
             {% else %}
                 <p>No image available</p>
             {% endif %}

@@ -18,19 +18,21 @@ def index(request):
 
     return render(request, 'index.html', context=context)
 
+
 def signup(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
         if form.is_valid():
-            user=form.instance
-            user.save()
-            user.refresh_from_db()
+            # retirado a linha de codigo `user=form.instance` que salvava o usuário antes de realizar o cadastro e atribuido o form.save() ao user
+            user = form.save()
+            # user.refresh_from_db()
             user.profile.firstname=form.cleaned_data.get('firstname')
             user.profile.lastname=form.cleaned_data.get('lastname')
             user.profile.email=form.cleaned_data.get('email')
             user.profile.phone_number=form.cleaned_data.get('phone_number')
             user.profile.address=form.cleaned_data.get('address')    
-            user.password = form.cleaned_data.get('password1')
+            # consertado problema da senha atribuindo o metodo set_password
+            user.set_password(form.cleaned_data.get('password1'))
             user.save()
             login(request, user)
             return redirect("/")

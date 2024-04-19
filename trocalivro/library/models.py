@@ -45,7 +45,8 @@ class Book(models.Model):
   genre = models.CharField(max_length=200, default = "", null = True)
   image = models.ImageField(upload_to='library/static/images/', blank=True, null=True)
   status = models.CharField(max_length = 20, choices = [(tag.name, tag.value) for tag in StatusBook])
-  
+  # Adicionado campo de autor no banco de dados.
+  author = models.CharField(max_length=255, null=True)
   created_at = models.DateField(default=timezone.now)
   owner = models.ForeignKey(Profile, on_delete = models.CASCADE)
 

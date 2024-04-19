@@ -19,10 +19,6 @@
     <p class="menu"> Minha conta </p>
     <a class="user-options" href="{% url 'users-edit' %}">Editar perfil</a><br>
     <a class="user-options" href="{% url 'users-profile' %}">Meus livros</a>
-    <form method="post" action="{% url 'logout' %}">
-    {% csrf_token %}
-      <button type="submit">Sair da conta</button>
-    </form>
     {% endif %}
   {% endblock %}
   </div>

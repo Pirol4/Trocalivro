@@ -1,6 +1,16 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-  <h1>Title: {{ book.title }}</h1>
-  <p>Description: {{ book.description }}</p>
+  <p>{{book.owner.firstname}} quer trocar</p>
+  <h2>{{ book.title }}</h2>
+  <p>{{ book.author }}</p>
+  <p>Descrição: {{ book.description }}</p>
+  <p>Categoria: {{book.genre}}</p>
+  <p>Status: {{book.status}}</p>
+  {%if book.image%}
+    <img src="{{book.image.url }}" alt="{{book.title}}">
+    <p>{{book.image.url }}</p>
+  {% endif %}
+  <button class="request-book-btn"><a href="">Solicitar troca</a></button>
+
 {% endblock %}

@@ -1,5 +1,18 @@
-{% extends "base_generic.html" %}
-{% comment %} Exibir os livros que estão com o status de recebidos {% endcomment %}
 {% block content %}
-<h1> Livros recebidos </h1>
+{% include "profile_generic.html" %}
+<section class="profile-page">
+  <h2 class="page-title"> Solicitações recebidas </h2>
+  <div class="books-container">
+      {% for book in user_books %}
+        <div class="book">
+          <div class="book-image-flex">
+            <img src="https://m.media-amazon.com/images/I/71ssdjzNbXL._AC_UF1000,1000_QL80_.jpg" alt="" class="book-image">
+          </div>
+          <a href="{% url 'book-detail' id=book.id %}">{{ book.title }}</a>
+          <!--ADICIONAR NOME DO AUTOR-->
+          <!--<p class="author-name">Elena Ferrante</p>-->
+        </div>  
+      {% endfor %}
+  </div>
+</section>
 {% endblock %}

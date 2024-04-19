@@ -13,12 +13,15 @@
       <button class="send-btn" type="submit">Adicionar livro</button>
     </form>
     {% if user.is_authenticated %}
-    <p class="menu">Solicitações</p>
-    <a class="user-options" href="{% url 'send-books' %}">Enviadas</a><br>
-    <a class="user-options" href="{% url 'received-books' %}">Recebidas</a>
-    <p class="menu"> Minha conta </p>
-    <a class="user-options" href="{% url 'users-edit' %}">Editar perfil</a><br>
-    <a class="user-options" href="{% url 'users-profile' %}">Meus livros</a>
+    <ul>
+      
+    </ul>
+    <p class="menu-heading">Solicitações</p>
+    <li><a class="user-options" href="{% url 'send-books' %}">Enviadas</a></li>
+    <li><a class="user-options" href="{% url 'received-books' %}">Recebidas</a></li>
+    <p class="menu-heading"> Minha conta </p>
+    <li><a class="user-options" href="{% url 'users-edit' %}">Editar perfil</a></li>
+    <li><a class="user-options" href="{% url 'users-profile' %}">Meus livros</a></li>
     {% endif %}
   {% endblock %}
   </div>

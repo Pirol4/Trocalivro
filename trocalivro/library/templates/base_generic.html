@@ -1,28 +1,36 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    {% block title %}<title>Local Library</title>{% endblock %}
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Add additional CSS in static file -->
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
-  </head>
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  {% block title %}<title>Local Library</title>{% endblock %}
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Add additional CSS in static file -->
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+</head>
   
 <body>
+  <!-- Cabeçalho -->
   <header>
+    
     <div class="container-logo">
+      
       <div class="logo-imagem">
         <img src="{% static 'images/logo.png' %}" alt="Logo">
       </div>
+      
       <div class="logo-texto">
         <h1>trocalivro</h1>
       </div> 
+    
     </div>
 
     <div class="container-fluid">
+      
       <div class="row">
+        
         <div class="col-sm-2">
           {% block sidebar %}
             <ul class="sidebar-nav">
@@ -35,17 +43,23 @@
             </ul>
           {% endblock %}
         </div>
+
       </div>
+    
     </div>
+
   </header>
 
+  <!-- Corpo -->
   <div class="container">{% block content %}{% endblock %}</div>
 
-  <!--rodapé-->
+  <!-- Rodapé -->
   <footer>
+    
     <div class="footer-content">
       <p id="copyright">© 2024 trocalivro</p>
     </div>
+    
   </footer>
 
 </body>

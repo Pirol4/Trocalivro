@@ -1,5 +1,13 @@
 @import url(https://fonts.googleapis.com/css2?family=Abhaya+Libre&display=swap);
-
-@import url(login_style.css);
 @import url(header_style.css);
 @import url(footer_style.css);
+@import url(input_box_style.css);
+@import url(button_style.css);
+@import url(body_style.css);
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Abhaya Libre', serif;
+}

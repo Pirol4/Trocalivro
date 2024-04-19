@@ -1,11 +1,57 @@
 {% extends "base_generic.html" %}
-{% comment %} Pagina para adicionar livro, criar um form aqui
+{% comment %}
+Pagina para adicionar livro, criar um form aqui
 view book_add {% endcomment %}
 {% block content %}
-<h1> Adicionar Livro </h1>
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Submit</button>
-    </form>
+<section class="add-book">
+        
+    <div class="form">
+        
+        <div class="form-header">
+            <div class="title">
+                <h1>Adicione um livro</h1>
+                <p>Preencha todos os dados</p>
+            </div>
+        </div>
+
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            
+            <div class="input-box">
+                <label for="id_name">Título</label>
+                {{ form.title }}
+            </div>
+            
+            <div class="input-box">
+                <label for="id_author">Autor</label>
+                {{ form.author }}
+            </div>
+
+            <div class="input-box">
+                <label for="id_description">Descrição</label>
+                {{ form.description }}
+            </div>
+
+            <div class="input-box">
+                <label for="id_tag">Categoria</label>
+                {{ form.genre }}
+            </div>
+
+            <div class="input-box">
+                <label for="id_picture">Imagem</label>
+                {{ form.image }}
+            </div>
+            
+            <div class="input-box">
+                <label for="id_status">Status</label>
+                {{ form.status }}
+            </div>
+            
+            <button type="submit">Enviar</button>
+        
+        </form>
+    
+    </div>
+
+</section>
 {% endblock %}

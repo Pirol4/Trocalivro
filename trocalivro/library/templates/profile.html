@@ -9,11 +9,12 @@
             {% if book.image %}
               {%load static %}
               <img src="{%static book.image_display_url %}" alt="{{ book.title }}">
-              <p>{{ book.image_display_url }}</p>
+          </a>
             {% else %}
                 <p>No image available</p>
             {% endif %}
             <p>{{ book.title }}</p>
+            <p>{{book.author}}</p>
         </ul>  
       {% endfor %}
   </div>

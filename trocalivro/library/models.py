@@ -43,7 +43,7 @@ class Book(models.Model):
   title = models.CharField(max_length = 255)
   description = models.TextField()
   genre = models.CharField(max_length=200, default = "", null = True)
-  image = models.ImageField(upload_to='images/', blank=True, null=True)
+  image = models.ImageField(upload_to='library/static/images/', blank=True, null=True)
   status = models.CharField(max_length = 20, choices = [(tag.name, tag.value) for tag in StatusBook])
   
   created_at = models.DateField(default=timezone.now)

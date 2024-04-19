@@ -1,5 +1,17 @@
-/* static/css/styles.css */
-body {
-  background-color: blue;
-  font-family: Arial, sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url(https://fonts.googleapis.com/css2?family=Abhaya+Libre&display=swap);
+
+*{
+  font-family: 'Public Sans', 'Abhaya Libre';
+}
+
+header {
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  background: #EBF5EE;
+}
+
+.search-input{
+  color: #283044;
 }

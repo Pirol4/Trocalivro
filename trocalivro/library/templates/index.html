@@ -9,7 +9,8 @@
         <li>
             <p>{{ book.owner.firstname}} quer trocar </p>
             {%if book.image%}
-                <img src="{{book.image.url }}" alt="#">
+            {%load static%}
+                <img src="{%static 'images/Torto_arado.jpg' %}" alt="#">
             {% endif %}
             <a href="book/{{ book.id }}">{{ book.title }}</a>
             <p>{{ book.author }}</p>

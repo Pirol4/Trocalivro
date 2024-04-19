@@ -4,7 +4,7 @@ from django.shortcuts import get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
-from library.forms import SignUpForm, BookForm
+from library.forms import SignUpForm, BookForm, EditProfile
 from library.models import Book, Profile
 
 def index(request):
@@ -18,19 +18,21 @@ def index(request):
 
     return render(request, 'index.html', context=context)
 
+
 def signup(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
         if form.is_valid():
-            user=form.instance
-            user.save()
-            user.refresh_from_db()
+            # retirado a linha de codigo `user=form.instance` que salvava o usuário antes de realizar o cadastro e atribuido o form.save() ao user
+            user = form.save()
+            # user.refresh_from_db()
             user.profile.firstname=form.cleaned_data.get('firstname')
             user.profile.lastname=form.cleaned_data.get('lastname')
             user.profile.email=form.cleaned_data.get('email')
             user.profile.phone_number=form.cleaned_data.get('phone_number')
             user.profile.address=form.cleaned_data.get('address')    
-            user.password = form.cleaned_data.get('password1')
+            # consertado problema da senha atribuindo o metodo set_password
+            user.set_password(form.cleaned_data.get('password1'))
             user.save()
             login(request, user)
             return redirect("/")
@@ -42,12 +44,34 @@ def signup(request):
 @login_required
 def profile(request):
     # Adicionar aqui listagem de livros da pessoa [Lucas]
+    image_path = '/library/static/'
     user_books = Book.objects.filter(owner=request.user.profile)
+    for book in user_books:
+        if book.image:
+            if book.image.url.startswith(image_path):
+                book.image_display_url = book.image.url.replace(image_path, '')
+            else:
+                book.image_display_url = book.image.url
     return render(request, 'profile.html', {'user_books': user_books})
 
 @login_required
 def edit_profile(request):
-    return render(request, 'edit_profile.html')
+    # associando a sessão ao usuário.
+    user = request.user
+    profile = user.profile
+
+    if request.method == 'POST':
+        # Atribuindo formulario a instancia do usuario
+        form = EditProfile(request.POST, request.FILES, instance = profile)
+        if form.is_valid():
+            form.save()
+        return redirect('users-profile')
+    else:
+        # independente se não for enviada
+        form = EditProfile(instance=profile)
+
+    # exibir na pagina de edição de perfil 
+    return render(request, 'edit_profile.html', {'form': form})
 
 @login_required
 def book_add(request):
@@ -55,9 +79,11 @@ def book_add(request):
     if request.method == 'POST':
         form = BookForm(request.POST, request.FILES)
         if form.is_valid():
+            # Salvando as informações do formulario do livro e atribuindo ao usuário da sessão.
             book = form.save(commit=False)
             book.owner = request.user.profile
             book.save()
+            # Assim que cadastrar o livro ir para a tela com as informações dele, ou ate mesmo voltar para a tela de perfil com os livros cadastrados.
             return redirect('book-detail', id=book.pk)
     else:
         form = BookForm()

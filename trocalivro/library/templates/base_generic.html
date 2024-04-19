@@ -1,50 +1,56 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="en">
   <head>
-    {% block title %}<title>trocalivro</title>{% endblock %}
-    <meta charset="utf-8" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    
+    {% block title %}<title>Local Library</title>{% endblock %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Add additional CSS in static file -->
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
-    integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
-    crossorigin="anonymous" />
   </head>
-
-  <body>
-  <div class="container">
-  <!--cabeçalho-->  
+  
+<body>
   <header>
-      <div class="header-container">
-        {% block topbar %}
-        <div class="heading-container">
-          <h1 class="site-logo"><a href="{% url 'index' %}">trocalivro</a></h1>
-        </div>
-        <div class="search-container">
-          <form class="search-box" method="get" action="search.html">
-              <input class="search-input" type="search" placeholder="Busque por livro ou autor" name="keyword"/>
-              <button class="search-button fas fa-search" title="Buscar livro"><i></i></button>
-          </form>
-        </div>
-        <div class="user-account-container">
-            {% if user.is_authenticated %}
-              <button class="header-btn" title="profile"><a href="{% url 'users-profile' %}" id="profile">Perfil</a></button>
-              <form method="post" action="{% url 'logout' %}">
-                {% csrf_token %}
-                  <button class="header-btn"type="submit">Sair</button>
-              </form>
-            {% else %}
-              <button class="header-btn btn btn-primary" title="login"><a href="{% url 'login' %}" id="login">Entrar</a></button>
-            {% endif %}
-        </div>
-        {% endblock %}
+    <div class="container-logo">
+      <div class="logo-imagem">
+        <img src="{% static 'images/logo.png' %}" alt="Logo">
       </div>
+      <div class="logo-texto">
+        <h1 class="site-logo"><a href="{% url 'index' %}">trocalivro</a></h1>
+      </div> 
+    </div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-2">
+          <div class="search-container">
+            <form class="search-box" method="get" action="search.html">
+                <input class="search-input" type="search" placeholder="Busque por livro ou autor" name="keyword"/>
+                <button class="search-button" title="Buscar livro"><i>Pesquisar</i></button>
+            </form>
+        </div>
+          {% block sidebar %}
+            <ul class="sidebar-nav">
+              {% if user.is_authenticated %}
+                <li><a href="{% url 'users-profile' %}">Perfil</a></li>
+                <li>
+                    <form method="post" action="{% url 'logout' %}">
+                      {% csrf_token %}
+                        <button type="submit">Sair</button>
+                    </form>
+                </li>
+              {% else %}
+                <li><a href="{% url 'login' %}">Login</a></li>
+              {% endif %}
+            </ul>
+          {% endblock %}
+        </div>
+      </div>
+    </div>
   </header>
 
-  <!--conteúdo das páginas filhas-->
-  <div class="main-content">{% block content %}{% endblock %}</div> 
+  <div class="container">{% block content %}{% endblock %}</div>
 
   <!--rodapé-->
   <footer>
@@ -52,6 +58,6 @@
       <p id="copyright">© 2024 trocalivro</p>
     </div>
   </footer>
-  </div>
-  </body>
+
+</body>
 </html>

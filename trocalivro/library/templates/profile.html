@@ -4,14 +4,17 @@
   <h2 class="page-title"> Meus livros </h2>
   <div class="books-container">
       {% for book in user_books %}
-        <div class="book">
-          <div class="book-image-flex">
-            <img src="#" alt="" class="book-image">
-          </div>
-          <a href="{% url 'book-detail' id=book.id %}">{{ book.title }}</a>
-          <!--ADICIONAR NOME DO AUTOR-->
-          <!--<p class="author-name">Elena Ferrante</p>-->
-        </div>  
+        <ul>  
+          <a href="{% url 'book-detail' id=book.id %}">
+            {% if book.image %}
+              {%load static %}
+              <img src="{%static book.image_display_url %}" alt="{{ book.title }}">
+              <p>{{ book.image_display_url }}</p>
+            {% else %}
+                <p>No image available</p>
+            {% endif %}
+            <p>{{ book.title }}</p>
+        </ul>  
       {% endfor %}
   </div>
 </section>

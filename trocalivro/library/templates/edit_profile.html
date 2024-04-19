@@ -5,4 +5,9 @@ view edit_profile {% endcomment %}
 {% block content %}
 {% include "profile_generic.html" %}
 <h2> Editar perfil </h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
 {% endblock %}

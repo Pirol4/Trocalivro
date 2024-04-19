@@ -7,9 +7,26 @@ from django.contrib.auth.forms import UserCreationForm
 from library.forms import SignUpForm, BookForm, EditProfile
 from library.models import Book, Profile
 
+
+# Criado função responsavel por exibir imagens dos livros
+def display_book_image(book):
+    image_path = '/library/static/'
+    image_default_path = ''
+
+    if book.image:
+        if book.image.url.startswith(image_path):
+            return book.image.url.replace(image_path, '')
+    # se o livro nao tiver imagem associada, será exibida uma imagem padrão. A declarar
+    return image_default_path
+
+
 def index(request):
     num_books = Book.objects.all().count()
     book_list = Book.objects.all()
+
+    # instanciado funcao para exibir a imagem dos livros
+    for book in book_list:
+       book.image_display_url = display_book_image(book) 
 
     context = {
         'num_books': num_books,
@@ -44,14 +61,11 @@ def signup(request):
 @login_required
 def profile(request):
     # Adicionar aqui listagem de livros da pessoa [Lucas]
-    image_path = '/library/static/'
     user_books = Book.objects.filter(owner=request.user.profile)
+
     for book in user_books:
-        if book.image:
-            if book.image.url.startswith(image_path):
-                book.image_display_url = book.image.url.replace(image_path, '')
-            else:
-                book.image_display_url = book.image.url
+        book.image_display_url = display_book_image(book)
+
     return render(request, 'profile.html', {'user_books': user_books})
 
 @login_required
@@ -106,4 +120,8 @@ def received_books(request):
 def book_detail_view(request, id):
     book = Book.objects.get(id=id)
 
+    # instanciado funcao para exibir a imagem dos livros
+    book.image_display_url = display_book_image(book)
+
     return render(request, 'book_detail.html', context={'book': book})
+

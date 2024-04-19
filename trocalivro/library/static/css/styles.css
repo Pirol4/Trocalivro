@@ -12,6 +12,53 @@ header {
   background: #EBF5EE;
 }
 
-.search-input{
-  color: #283044;
+.header-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user-account-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* CAIXA DE PESQUISA */
+
+.search-box {
+  max-width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #6B757E;
+  border-radius: 20px;
+}
+
+.search-input,
+.search-button {
+  background-color: #FFFFFF;
+  border: none;
+}
+
+.search-input:focus {
+  outline: none;
+}
+
+.search-button {
+  color: #6B757E;
+}
+
+.search-input::placeholder {
+  width: 100%;
+  padding: 1%;
+  border: none;
+  background-color: transparent;
+  color: #6B757E;
+}
+
+.search-button:hover {
+  cursor: pointer;
 }

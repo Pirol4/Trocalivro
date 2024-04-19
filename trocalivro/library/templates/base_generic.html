@@ -8,7 +8,9 @@
     <!-- Add additional CSS in static file -->
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+    crossorigin="anonymous" />
   </head>
 
   <body>
@@ -16,32 +18,33 @@
   <!--cabeçalho-->  
   <header>
       <div class="header-container">
-        <h1 class="site-logo"><a href="{% url 'index' %}">trocalivro</a></h1>
-
         {% block topbar %}
+        <div class="heading-container">
+          <h1 class="site-logo"><a href="{% url 'index' %}">trocalivro</a></h1>
+        </div>
         <div class="search-container">
           <form class="search-box" method="get" action="search.html">
-              <input class="search-input rounded" type="search" placeholder="Busque por livro ou autor" name="keyword"/>
-              <button class="search-button btn btn-primary" title="Buscar livro"><i>Pesquisar</i></button>
+              <input class="search-input" type="search" placeholder="Busque por livro ou autor" name="keyword"/>
+              <button class="search-button fas fa-search" title="Buscar livro"><i></i></button>
           </form>
         </div>
-          <nav>
+        <div class="user-account-container">
             {% if user.is_authenticated %}
-              <button class="header-btn btn btn-primary" title="profile"><a href="{% url 'users-profile' %}" id="profile">Perfil</a></button>
+              <button class="header-btn" title="profile"><a href="{% url 'users-profile' %}" id="profile">Perfil</a></button>
               <form method="post" action="{% url 'logout' %}">
                 {% csrf_token %}
-                  <button class="btn btn-secondary "type="submit">Sair</button>
+                  <button class="header-btn"type="submit">Sair</button>
               </form>
             {% else %}
               <button class="header-btn btn btn-primary" title="login"><a href="{% url 'login' %}" id="login">Entrar</a></button>
             {% endif %}
-          </nav>
+        </div>
         {% endblock %}
       </div>
   </header>
 
   <!--conteúdo das páginas filhas-->
-  <div>{% block content %}{% endblock %}</div> 
+  <div class="main-content">{% block content %}{% endblock %}</div> 
 
   <!--rodapé-->
   <footer>

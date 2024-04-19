@@ -1,6 +1,5 @@
-.sidebar-nav {
-    margin-top: 20px;
-    padding: 0;
-    list-style: none;
-  }
-
+/* static/css/styles.css */
+body {
+  background-color: aquamarine;
+  font-family: Arial, sans-serif;
+}

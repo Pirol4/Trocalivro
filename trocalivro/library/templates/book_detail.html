@@ -7,10 +7,15 @@
   <p>Descrição: {{ book.description }}</p>
   <p>Categoria: {{book.genre}}</p>
   <p>Status: {{book.status}}</p>
-  {%if book.image%}
-    <img src="{{book.image.url }}" alt="{{book.title}}">
-    <p>{{book.image.url }}</p>
+  {% if book.image %}
+    {%load static %}
+    <img src="{%static book.image_display_url %}" alt="{{ book.title }}">
+    <p>{{book.image_display_url}}</p>
+  {% else %}
+    <p>No image available</p>
   {% endif %}
   <button class="request-book-btn"><a href="">Solicitar troca</a></button>
 
 {% endblock %}
+
+ 

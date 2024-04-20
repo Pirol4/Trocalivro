@@ -1,60 +1,75 @@
 @import url(https://fonts.googleapis.com/css2?family=Abhaya+Libre&display=swap);
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: 'Abhaya Libre', serif;
-}
 
 header {
     width: 100%;
-    background-color: #FFFFFF;
+    height: 10%;
+    background-color: #EBF5EE;;
     display: flex;
     justify-content: space-between;
-    padding: 20px 50px;
-    position: fixed;
+    padding: 1%;
+    position: absolute;
+    z-index: 1;
+    align-items: center;
+}
+
+.logo-container img{
+    max-width: 70%;
+}
+
+.search-container {
+    position: relative;
+}
+
+.search-field {
+    width: 250px;
+    height: 40px;
+    padding: 20px;
+    border: none;
+    border-radius: 20px;
+    background-color: #fff;
+    font-style: italic;
+    color: #808080;
+}
+
+.search-btn {
+    position: absolute;
     top: 0;
-    z-index: 100000;
-    align-items: center;
+    right: 0;
+    padding: 10px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
 }
 
-.logo-imagem {
-    width: 50px;
-    height: 50px;
-    background-color: #FFFFFF;
-}
-
-.container-logo {
-    margin-left: 20px;
+.header-btns {
     display: flex;
-    align-items: center;
+    justify-content: center;
 }
 
-.logo-texto {
-    color: #283044;
-    margin-left: 20px;
+.primary-btn {
+    width: 100px;
+    height: 40px;
+    background: #283044;
+    border-radius: 20px;
+    color:#EBF5EE;
+    font-weight: 600;
+    text-align: center;
+    border: none;
 }
 
-.sidebar-nav {
-    list-style-type: none;
-    padding: 0;
-}
-
-.sidebar-nav li {
-    display: inline-block;
-    margin: 0 10px;
-    margin-right: 30px;
-}
-
-.sidebar-nav li a {
-    color: #FFFFFF;
-    font-size: 24px;
+.primary-btn a{
     text-decoration: none;
-    background-color: #283044;
-    padding: 10px 20px;
-    border-radius: 10px;
 }
 
-.sidebar-nav li a:hover {
-    text-decoration: underline;
-}
+.secondary-btn {
+    width: 100px;
+    height: 40px;
+    background: transparent;
+    border-radius: 20px;
+    color: #808080;
+    font-weight: 400;
+    text-align: center;
+    border: none;
+  }
+
+

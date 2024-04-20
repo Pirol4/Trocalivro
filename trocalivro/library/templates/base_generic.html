@@ -14,38 +14,31 @@
   
 <body>
   <header>
-    <div class="container-logo">
-      <div class="logo-imagem">
-        <img src="{% static 'images/logo.png' %}" alt="Logo">
-      </div>
-      <div class="logo-texto">
-        <h1 class="site-logo"><a href="{% url 'index' %}">trocalivro</a></h1>
-      </div> 
+    {% block header %}
+    <div class="logo-container">
+        <a href="{% url 'index' %}">
+          <img src="{% static 'images/trocalivro-logo.svg' %}" alt="Logo">
+      </a>
     </div>
-
-    <div class="">
-          <div class="search-container">
-            <form class="search-box" method="get" action="search.html">
-                <input class="search-input" type="search" placeholder="Busque por livro ou autor" name="keyword"/>
-                <button class="search-button" title="Buscar livro"><i>Pesquisar</i></button>
+    <div class="search-container">
+      <input type="text" placeholder="Buscar livro" class="search-field">
+      <button type="submit" class="search-btn">
+        <span class="bi bi-search"></span>
+      </button>
+    </div>
+        <div class="header-btns">
+          {% if user.is_authenticated %}
+            <button class="primary-btn" type="button"><a href="{% url 'users-profile' %}">Perfil</a>
+            </button>
+            <form method="post" action="{% url 'logout' %}">
+              {% csrf_token %}
+                <button class="secondary-btn" type="submit">Sair</button>
             </form>
-        </div>
-          {% block sidebar %}
-            <ul class="sidebar-nav">
-              {% if user.is_authenticated %}
-                <li><a href="{% url 'users-profile' %}">Perfil</a></li>
-                <li>
-                    <form method="post" action="{% url 'logout' %}">
-                      {% csrf_token %}
-                        <button type="submit">Sair</button>
-                    </form>
-                </li>
-              {% else %}
-                <li><a href="{% url 'login' %}">Login</a></li>
-              {% endif %}
-            </ul>
-          {% endblock %}
-        </div>
+          {% else %}
+              <button><a href="{% url 'login' %}">Login</a></button>
+          {% endif %}
+          </div>
+      {% endblock %}
     </div>
   </header>
 

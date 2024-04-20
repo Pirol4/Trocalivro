@@ -27,6 +27,11 @@ header {
     margin-left: 20px;
 }
 
+.logo-link {
+    text-decoration: none;
+    color: unset;
+}
+
 .sidebar-nav {
     list-style-type: none;
     padding: 0;
@@ -49,4 +54,28 @@ header {
 
 .sidebar-nav li a:hover {
     text-decoration: underline;
+}
+
+.search-box {
+    display: inline-flex;
+}
+
+.search-input {
+    width: 500px;
+    padding: 3px;
+}
+
+.container-fluid {
+    float: left;
+}
+
+.search-button {
+    padding: 0;
+    margin: 0;
+    width: 60px;
+    margin-left: 3px;
+}
+
+.topbar-button {
+    padding: 20px;
 }

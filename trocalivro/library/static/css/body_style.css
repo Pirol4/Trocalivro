@@ -5,14 +5,18 @@ body {
     justify-content: center;
     align-items: center;
     background: #EBF5EE;
+    position: relative;
+    padding-top: 340px;
+    padding-bottom: 340px;
 }
 
 .container {
-    flex-grow: 1;
+    /* flex-grow: 1;
     overflow-y: auto;
-    padding: 20px;
-    /* width: 100%;
-    display: center; */
+    /* padding: 20px;
+    padding-top: 40px; */
+    width: 100%;
+    display: center;
 }
 
 .form {
@@ -27,6 +31,7 @@ body {
     box-shadow: 15px 15px 0px #BFA89E;
     border-radius: 20px;
     margin: 0 auto;
+    position: relative;
 }
 
 .form-header {

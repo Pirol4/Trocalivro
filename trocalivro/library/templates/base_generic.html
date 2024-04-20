@@ -13,32 +13,20 @@
 <body>
   <!-- Cabeçalho -->
   <header>
-    
     <div class="container-logo">
-      
       <div class="logo-imagem">
         <img src="{% static 'images/logo.png' %}" alt="Logo">
       </div>
-      
       <div class="logo-texto">
-        <h1 class="site-logo"><a href="{% url 'index' %}">trocalivro</a></h1>
+        <h1 class="site-logo"><a class="logo-link" href="{% url 'index' %}">trocalivro</a></h1>
       </div> 
-    
     </div>
 
     <div class="container-fluid">
-      
       <div class="row">
-        
-        <div class="col-sm-2">
-          <div class="search-container">
-            <form class="search-box" method="get" action="search.html">
-                <input class="search-input" type="search" placeholder="Busque por livro ou autor" name="keyword"/>
-                <button class="search-button" title="Buscar livro"><i>Pesquisar</i></button>
-            </form>
-        </div>
           {% block sidebar %}
             <ul class="sidebar-nav">
+              {% block top_bar_icons %}{% endblock %}
               {% if user.is_authenticated %}
                 <li><a href="{% url 'users-profile' %}">Perfil</a></li>
                 <li>
@@ -48,16 +36,13 @@
                     </form>
                 </li>
               {% else %}
-                <li><a href="{% url 'login' %}">Login</a></li>
+                <li><a class="topbar-button" href="{% url 'login' %}">Login</a></li>
               {% endif %}
             </ul>
           {% endblock %}
         </div>
-
       </div>
-    
     </div>
-
   </header>
 
   <!-- Corpo -->

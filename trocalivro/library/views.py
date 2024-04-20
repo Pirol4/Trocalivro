@@ -40,15 +40,12 @@ def signup(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
         if form.is_valid():
-            # retirado a linha de codigo `user=form.instance` que salvava o usuário antes de realizar o cadastro e atribuido o form.save() ao user
             user = form.save()
-            # user.refresh_from_db()
             user.profile.firstname=form.cleaned_data.get('firstname')
             user.profile.lastname=form.cleaned_data.get('lastname')
             user.profile.email=form.cleaned_data.get('email')
             user.profile.phone_number=form.cleaned_data.get('phone_number')
             user.profile.address=form.cleaned_data.get('address')    
-            # consertado problema da senha atribuindo o metodo set_password
             user.set_password(form.cleaned_data.get('password1'))
             user.save()
             login(request, user)
@@ -60,7 +57,6 @@ def signup(request):
 
 @login_required
 def profile(request):
-    # Adicionar aqui listagem de livros da pessoa [Lucas]
     user_books = Book.objects.filter(owner=request.user.profile)
 
     for book in user_books:
@@ -105,10 +101,8 @@ def book_add(request):
 
 @login_required
 def my_books(request):
-    # Adicionar aqui adição de livro [Lucas]
     return render(request, 'profile.html')
 
-# Colocar em cada pagina os livros que tem os status marcados  
 @login_required
 def send_books(request):
     return render(request, 'send_books.html')
@@ -125,3 +119,12 @@ def book_detail_view(request, id):
 
     return render(request, 'book_detail.html', context={'book': book})
 
+def search_book(request):
+    query = request.GET.get('q')
+    if query:
+        books = Book.objects.filter(title__icontains=query)
+        for book in books:
+            book.image_display_url = display_book_image(book) 
+    else:
+        books = []
+    return render(request, 'index.html', {'book_list': books})

@@ -1,6 +1,8 @@
+{% extends "base_generic.html" %}
+
 {% block content %}
 {% include "profile_generic.html" %}
-<section class="profile-page">
+<div class="profile-page">
   <h2 class="page-title"> Meus livros </h2>
   <div class="books-container">
       {% for book in user_books %}
@@ -18,5 +20,5 @@
         </div>  
       {% endfor %}
   </div>
-</section>
+</div>
 {% endblock %}

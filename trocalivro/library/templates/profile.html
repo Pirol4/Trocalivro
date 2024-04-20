@@ -4,7 +4,7 @@
   <h2 class="page-title"> Meus livros </h2>
   <div class="books-container">
       {% for book in user_books %}
-        <ul>  
+        <div class="user-book">  
           <a href="{% url 'book-detail' id=book.id %}">
             {% if book.image %}
               {%load static %}
@@ -13,9 +13,9 @@
             {% else %}
                 <p>No image available</p>
             {% endif %}
-            <p>{{ book.title }}</p>
-            <p>{{book.author}}</p>
-        </ul>  
+            <p class="book-title">{{ book.title }}</p>
+            <p class="book-author">{{book.author}}</p>
+        </div>  
       {% endfor %}
   </div>
 </section>

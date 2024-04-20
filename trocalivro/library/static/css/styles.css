@@ -1,6 +1,7 @@
 @import url(https://fonts.googleapis.com/css2?family=Abhaya+Libre&display=swap);
 @import url('https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap');
-@import url(login_style.css);
-@import url(header_style.css);
-@import url(footer_style.css);
+/*@import url(login_style.css);*/
+/*@import url(header_style.css);
+/*@import url(footer_style.css);*/
 @import url(sidebar_style.css);
+@import url(page_content.css);

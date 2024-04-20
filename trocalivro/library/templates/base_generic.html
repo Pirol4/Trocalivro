@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-  <head>
+<head>
     {% block title %}<title>trocalivro</title>{% endblock %}
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,21 +8,28 @@
     <!-- Add additional CSS in static file -->
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
-  </head>
+</head>
   
 <body>
+  <!-- Cabeçalho -->
   <header>
+    
     <div class="container-logo">
+      
       <div class="logo-imagem">
         <img src="{% static 'images/logo.png' %}" alt="Logo">
       </div>
+      
       <div class="logo-texto">
         <h1 class="site-logo"><a href="{% url 'index' %}">trocalivro</a></h1>
       </div> 
+    
     </div>
 
     <div class="container-fluid">
+      
       <div class="row">
+        
         <div class="col-sm-2">
           <div class="search-container">
             <form class="search-box" method="get" action="search.html">
@@ -46,17 +53,23 @@
             </ul>
           {% endblock %}
         </div>
+
       </div>
+    
     </div>
+
   </header>
 
+  <!-- Corpo -->
   <div class="container">{% block content %}{% endblock %}</div>
 
-  <!--rodapé-->
+  <!-- Rodapé -->
   <footer>
+    
     <div class="footer-content">
       <p id="copyright">© 2024 trocalivro</p>
     </div>
+    
   </footer>
 
 </body>

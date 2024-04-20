@@ -1,6 +1,6 @@
 .profile-sidebar {
   font-family: 'Public Sans';
-  background: #EBF5EE;
+  background: #90bdda;
   width: 20%;
   position: fixed; 
   left: 10%; 
@@ -44,6 +44,6 @@
 
 .menu-option{
 font-weight: 400;
-color: #6B757E;
+color: #283044;
 text-decoration: none;
 }

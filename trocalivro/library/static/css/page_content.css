@@ -1,6 +1,6 @@
 .profile-page {
   font-family: 'Public Sans';
-  position: right;
+  position: static;
   width: 70%;
   float: right;
   padding: 30px;
@@ -15,7 +15,7 @@
 .books-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content:space-evenly;
+  justify-content: left;
 }
 
 .user-book {
@@ -23,7 +23,7 @@
   max-height: 200px;
   margin-bottom: 10%;
   margin-top: 5%;
-  margin-left: 1%;
+  margin-left: 2%;
 }
 
 .user-book img {

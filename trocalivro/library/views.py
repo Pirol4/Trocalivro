@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from library.forms import SignUpForm, BookForm, EditProfile
-from library.models import Book, Profile
+from library.models import Book, Profile, BookExchange, StatusBook
 
 
 # Criado função responsavel por exibir imagens dos livros
@@ -125,3 +125,48 @@ def book_detail_view(request, id):
 
     return render(request, 'book_detail.html', context={'book': book})
 
+
+def solicitation(request, id):
+    if request.method == 'POST':
+        # Verifica se o usuário está autenticado
+        if not request.user.is_authenticated:
+            # messages.error(request, "Você precisa estar logado para solicitar uma troca.")
+            return redirect('login')  # Redireciona o usuário para a página de login
+
+        # Obtém o perfil do usuário solicitante
+        requester_profile = request.user.profile
+
+        # Obtém o livro
+        book = Book.objects.get(pk=id)
+
+        # Verifica se o livro está disponível para troca
+        if book.status != StatusBook.AVAILABLE.value:
+            print(f"{book.status}")
+            print(f"{StatusBook.AVAILABLE.value}")
+            # messages.error(request, "Este livro não está disponível para troca no momento.")
+            return redirect('index')  # Redireciona de volta para a página de detalhes do livro
+
+        # Verifica se o usuário solicitando é o dono do livro
+        if book.owner == requester_profile:
+            return redirect('index')
+
+
+        # Log para depurar valores
+        print(f"Requester: {requester_profile}")
+        print(f"Book: {book}")
+        print(f"Owner: {book.owner}")
+
+        # Cria uma instância de BookExchange para solicitar a troca
+        BookExchange.objects.create(book=book, requester=requester_profile, owner=book.owner, status=StatusBook.IN_EXCHANGE.value)
+        
+        # Atualiza o status do livro para "Em troca"
+        book.status = StatusBook.IN_EXCHANGE.value
+        book.save()
+
+        # messages.success(request, "Solicitação de troca enviada com sucesso!")
+        return redirect('index')  # Redireciona de volta para a página de detalhes do livro
+
+    else:
+        # Se o método da requisição não for POST, apenas renderiza o template de solicitação de troca
+        book = Book.objects.get(id=id)
+        return render(request, 'solicitation_book.html', context={'book': book})

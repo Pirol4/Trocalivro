@@ -10,9 +10,9 @@ import uuid
 
 
 class StatusBook(Enum):
-  AVAILABLE = 'Available'
-  IN_EXCHANGE = 'In Exchange'
-  UNAVAILABLE = 'Unavailable'
+  AVAILABLE = 'AVAILABLE'
+  IN_EXCHANGE = 'IN EXCHANGE'
+  UNAVAILABLE = 'UNAVAILABLE'
 
 
 class Profile(models.Model):
@@ -52,3 +52,22 @@ class Book(models.Model):
 
   def get_absolute_url(self):
     return reverse('book-detail', args=[str(self.id)])
+
+
+
+class BookExchange(models.Model):
+    book = models.ForeignKey(Book, on_delete=models.CASCADE)
+    requester = models.ForeignKey(Profile, related_name='requested_books', on_delete=models.CASCADE)
+    owner = models.ForeignKey(Profile, related_name='owned_books', on_delete=models.CASCADE)
+    status = models.CharField(max_length=20, choices=[(tag.name, tag.value) for tag in StatusBook])
+    # message = models.TextField(default="")
+
+    def save(self, *args, **kwargs):
+        # Atualiza o status do livro com base no status da troca
+        if self.status == StatusBook.IN_EXCHANGE.value:
+            self.book.status = StatusBook.IN_EXCHANGE.value
+            self.book.save()
+        elif self.status == StatusBook.AVAILABLE.value:
+            self.book.status = StatusBook.AVAILABLE.value
+            self.book.save()
+        super().save(*args, **kwargs)

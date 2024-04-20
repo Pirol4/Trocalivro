@@ -8,8 +8,13 @@
   {% else %}
     <p>No image available</p>
   {% endif %}
-  <button class="request-book-btn"><a href="">Solicitar troca</a></button>
-  </div>
+  {% comment %} <button class="request-book-btn"><a href="{% url 'book-solicitation' id=book.id %}" >Solicitar troca</a></button> {% endcomment %}
+  <form action="{% url 'book-solicitation' id=book.id %}" method="post">
+    {% csrf_token %}
+    <button class="request-book-btn" type="submit">Solicitar troca</button>
+  </form>
+
+</div>
 
   <div class="information-container">
     <span class="book-owner">{{book.owner.firstname}}</span>

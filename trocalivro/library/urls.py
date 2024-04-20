@@ -6,7 +6,8 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('book/', views.book_add, name='book-add'), # Implementar
+    path('book/', views.book_add, name='book-add'),
+
     path('book/<int:id>', views.book_detail_view, name='book-detail'),
     path('profile/', views.profile, name='users-profile'),
     # alternativos
@@ -15,5 +16,8 @@ urlpatterns = [
     path('profile/received', views.received_books, name='received-books'),
     
     path('signup/', views.signup, name='signup'),
-    path('accounts/', include('django.contrib.auth.urls'))
+    path('accounts/', include('django.contrib.auth.urls')),
+
+
+    path('book/<int:id>/solicitation/', views.solicitation, name='book-solicitation'),
 ]

@@ -2,11 +2,12 @@
 
 {% block content %}
 <div class="index-main-content">
-    <h2>Últimos livros cadastrados</h2>
+    <h2 class="page-title">Últimos livros cadastrados</h2>
     <div class="books-container">
        {% for book in book_list %}
          <div class="user-book">  
-         <p>{{ book.owner.firstname}} quer trocar </p>
+          <span class="book-owner">{{book.owner.firstname}}</span>
+          <span>quer trocar</span>
            <a href="{% url 'book-detail' id=book.id %}">
              {% if book.image %}
                {%load static %}

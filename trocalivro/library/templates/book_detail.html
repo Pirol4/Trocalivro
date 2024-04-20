@@ -1,21 +1,28 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-  <p>{{book.owner.firstname}} quer trocar</p>
-  <h2>{{ book.title }}</h2>
-  <p>{{ book.author }}</p>
-  <p>Descrição: {{ book.description }}</p>
-  <p>Categoria: {{book.genre}}</p>
-  <p>Status: {{book.status}}</p>
-  {% if book.image %}
+<div class="book-details-wrapper">
+  <div class="cover-container">
+    {% if book.image %}
     {%load static %}
     <img src="{%static book.image_display_url %}" alt="{{ book.title }}">
-    <p>{{book.image_display_url}}</p>
   {% else %}
     <p>No image available</p>
   {% endif %}
   <button class="request-book-btn"><a href="">Solicitar troca</a></button>
+  </div>
 
+  <div class="information-container">
+    <span class="book-owner">{{book.owner.firstname}}</span>
+    <span>quer trocar</span>
+    <h2>{{ book.title }}</h2>
+    <p class="book-author">{{ book.author }}</p>
+    <p>Descrição: {{ book.description }}</p>
+    <p>Categoria: {{book.genre}}</p>
+    <p>Status: {{book.status}}</p>
+  </div>
+
+</div>
 {% endblock %}
 
  

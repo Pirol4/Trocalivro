@@ -1,5 +1,6 @@
 .profile-page {
   font-family: 'Public Sans';
+  position: right;
   width: 70%;
   float: right;
   padding: 30px;
@@ -12,20 +13,23 @@
 }
 
 .books-container {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr); /* Cinco colunas com largura igual */
-  gap: 5%; /* Espaçamento entre os livros */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:space-evenly;
 }
 
 .user-book {
-  width: 100%;
-  margin-bottom: 10px;
-  text-align: center;
+  max-width: 200px;
+  max-height: 200px;
+  margin-bottom: 10%;
+  margin-top: 5%;
+  margin-left: 1%;
 }
 
 .user-book img {
   max-width: 100%;
-  max-height: 100%
+  max-height: 100%;
+  margin: 5%;
 }
 
 .book-title{
@@ -34,7 +38,12 @@
   margin: 0;
 }
 
-.book-author{
+.book-author {
   font-weight: 200;
   color:#283044;
+}
+
+.book-owner {
+  font-weight: 700;
+  color: #283044
 }

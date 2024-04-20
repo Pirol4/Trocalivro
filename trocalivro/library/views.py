@@ -23,7 +23,7 @@ def display_book_image(book):
 def index(request):
     num_books = Book.objects.all().count()
     book_list = Book.objects.all()
-
+   
     # instanciado funcao para exibir a imagem dos livros
     for book in book_list:
        book.image_display_url = display_book_image(book) 

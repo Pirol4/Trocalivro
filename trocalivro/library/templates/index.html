@@ -15,31 +15,25 @@
 {% endblock %}
 
 {% block content %}
-  <p>Últimos livros cadastrados</p>
-  <div class="books-container">
-  <ul>
-    {% if book_list %}
-    <ul>
-        {% for book in book_list %}
-        <li>
-            <p>{{ book.owner.firstname}} quer trocar </p>
-            <a href="{% url 'book-detail' id=book.id %}">
-                {% if book.image %}
-                    {%load static %}
-                    <img src="{%static book.image_display_url %}" alt="{{ book.title }}">
-            </a>
-                {% else %}
-                    <p>No image available</p>
-                {% endif %}
-            <a href="book/{{ book.id }}">{{ book.title }}</a>
-            <p>{{ book.author }}</p>
-            <button class="request-book-btn"><a href="">Solicitar troca</a></button>
-        </li>
-        {% endfor %}
-    </ul>
-    {% else %}
-        <p>Ainda não há livros cadastrados.</p>
-    {% endif %}
-    </ul>
-    </div>
+<div class="index-main-content">
+    <h2 class="page-title">Últimos livros cadastrados</h2>
+    <div class="books-container">
+       {% for book in book_list %}
+         <div class="user-book">  
+          <span class="book-owner">{{book.owner.firstname}}</span>
+          <span>quer trocar</span>
+           <a href="{% url 'book-detail' id=book.id %}">
+             {% if book.image %}
+               {%load static %}
+               <img src="{%static book.image_display_url %}" alt="{{ book.title }}">
+           </a>
+             {% else %}
+                 <p>No image available</p>
+             {% endif %}
+             <p class="book-title">{{ book.title }}</p>
+             <p class="book-author">{{book.author}}</p>
+         </div>  
+       {% endfor %}
+   </div>
+</div>
 {% endblock %}

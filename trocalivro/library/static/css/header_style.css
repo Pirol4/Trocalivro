@@ -1,30 +1,62 @@
+@import url(https://fonts.googleapis.com/css2?family=Abhaya+Libre&display=swap);
+
 header {
+    font-family: 'Public Sans', serif;
     width: 100%;
-    background-color: #FFFFFF;
+    height: 10%;
+    background-color: #90bdda;
     display: flex;
-    justify-content: space-between;
-    padding: 20px 50px;
-    position:absolute;
+    justify-content: space-evenly;
+    padding: 1%;
+    position: absolute;
+    z-index: 1;
+    align-items: center;
+}
+
+.logo-container img{
+    max-width: 70%;
+}
+
+.search-container {
+    position: relative;
+}
+
+.search-field {
+    width: 250px;
+    height: 40px;
+    padding: 20px;
+    border: none;
+    border-radius: 20px;
+    background-color: #fff;
+    font-style: italic;
+    color: #808080;
+}
+
+.search-btn {
+    position: absolute;
     top: 0;
-    z-index: 100000;
-    align-items: center;
+    right: 0;
+    padding: 10px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
 }
 
-.logo-imagem {
-    width: 50px;
-    height: 50px;
-    background-color: #FFFFFF;
-}
-
-.container-logo {
-    margin-left: 20px;
+.header-btns {
     display: flex;
-    align-items: center;
+    justify-content: space-around;
 }
 
-.logo-texto {
-    color: #283044;
-    margin-left: 20px;
+.primary-btn {
+    width: 100px;
+    height: 40px;
+    background: #283044;
+    border-radius: 20px;
+    color:#EBF5EE;
+    font-weight: 700;
+    text-align: center;
+    border: none;
+    margin-right: 10px;
 }
 
 .logo-link {
@@ -46,10 +78,10 @@ header {
 .sidebar-nav li a {
     color: #FFFFFF;
     font-size: 24px;
+}
+
+.primary-btn a{
     text-decoration: none;
-    background-color: #283044;
-    padding: 10px 20px;
-    border-radius: 10px;
 }
 
 .sidebar-nav li a:hover {
@@ -79,3 +111,17 @@ header {
 .topbar-button {
     padding: 20px;
 }
+.secondary-btn {
+    width: 100px;
+    height: 40px;
+    background: transparent;
+    border-radius: 20px;
+    color: #FFFFFF;
+    font-weight: 400;
+    text-align: center;
+    border: solid;
+    border-color: #FFFFFF;
+    border-width: 1px;
+  }
+
+

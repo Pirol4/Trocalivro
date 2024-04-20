@@ -1,26 +1,31 @@
 {% extends "base_generic.html" %}
 
 <!--barra de navegação do perfil do usuário-->
-<section>
-  <div class="profile-sidebar">
+
+
     {% block content %}
-    <p class="user-name">Olá, {{ user.profile.firstname }}!</p>
-    <div class="user-picture">
-      <img src="#" alt=""> <!--ADICIONAR FOTO DO USUÁRIO DO BANCO DE DADOS-->
+    <div class="profile-sidebar">
+      <div class="user-container">
+        <p class="user-name">Olá, {{ user.profile.firstname }}!</p>
+        <div class="user-picture">
+          <img src="#" alt=""> <!--ADICIONAR FOTO DO USUÁRIO DO BANCO DE DADOS-->
+          <form class="send-book" method="post" action="{% url 'book-add' %}">
+            {% csrf_token %}
+            <button class="add-book-btn" type="submit">Adicionar livro</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="menu-container">
+        {% if user.is_authenticated %}
+          <p class="menu-heading">Solicitações</p>
+          <li><a class="menu-option" href="{% url 'send-books' %}">Enviadas</a></li>
+          <li><a class="menu-option" href="{% url 'received-books' %}">Recebidas</a></li>
+          <p class="menu-heading"> Minha conta </p>
+          <li><a class="menu-option" href="{% url 'users-edit' %}">Editar perfil</a></li>
+          <li><a class="menu-option" href="{% url 'users-profile' %}">Meus livros</a></li>
+          {% endif %}
+      </div>
     </div>
-    <form class="send-book" method="post" action="{% url 'book-add' %}">
-      {% csrf_token %}
-      <button class="send-btn" type="submit">Adicionar livro</button>
-    </form>
-    {% if user.is_authenticated %}
-    <p class="menu">Solicitações</p>
-    <a class="user-options" href="{% url 'send-books' %}">Enviadas</a><br>
-    <a class="user-options" href="{% url 'received-books' %}">Recebidas</a>
-    <p class="menu"> Minha conta </p>
-    <a class="user-options" href="{% url 'users-edit' %}">Editar perfil</a><br>
-    <a class="user-options" href="{% url 'users-profile' %}">Meus livros</a>
-    {% endif %}
   {% endblock %}
-  </div>
-</section>
 

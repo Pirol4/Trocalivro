@@ -1,15 +1,14 @@
 .profile-page {
   font-family: 'Public Sans';
-  position: static;
-  width: 70%;
+  position: relative;
+  width: 60%;
   float: right;
-  padding: 30px;
+  padding-left: 5%;
 }
 
 .page-title {
   color: #283044;
   font-weight: 600;
-  margin: 10px;
 }
 
 .books-container {
@@ -23,7 +22,7 @@
   max-height: 200px;
   margin-bottom: 10%;
   margin-top: 5%;
-  margin-left: 2%;
+  margin-left: 2%; 
 }
 
 .user-book img {
@@ -45,5 +44,5 @@
 
 .book-owner {
   font-weight: 700;
-  color: #283044
+  color: #283044;
 }

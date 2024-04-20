@@ -1,4 +1,6 @@
 .wrapper {
-  padding-top: 5%;
-  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 10%;
 }

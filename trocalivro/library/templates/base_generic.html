@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    {% block title %}<title>Local Library</title>{% endblock %}
+    {% block title %}<title>trocalivro</title>{% endblock %}
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,18 +17,29 @@
         <img src="{% static 'images/logo.png' %}" alt="Logo">
       </div>
       <div class="logo-texto">
-        <h1>trocalivro</h1>
+        <h1 class="site-logo"><a href="{% url 'index' %}">trocalivro</a></h1>
       </div> 
     </div>
 
     <div class="container-fluid">
       <div class="row">
         <div class="col-sm-2">
+          <div class="search-container">
+            <form class="search-box" method="get" action="search.html">
+                <input class="search-input" type="search" placeholder="Busque por livro ou autor" name="keyword"/>
+                <button class="search-button" title="Buscar livro"><i>Pesquisar</i></button>
+            </form>
+        </div>
           {% block sidebar %}
             <ul class="sidebar-nav">
-              <li><a href="{% url 'index' %}">Home</a></li>
               {% if user.is_authenticated %}
                 <li><a href="{% url 'users-profile' %}">Perfil</a></li>
+                <li>
+                    <form method="post" action="{% url 'logout' %}">
+                      {% csrf_token %}
+                        <button type="submit">Sair</button>
+                    </form>
+                </li>
               {% else %}
                 <li><a href="{% url 'login' %}">Login</a></li>
               {% endif %}

@@ -1,8 +1,10 @@
-{% extends "base_generic.html" %}
 {% comment %} Pagina para editar perfil, criar um form aqui
+Não mudar estrutura da página
 view edit_profile {% endcomment %}
+
 {% block content %}
-<h1> Editar perfil </h1>
+{% include "profile_generic.html" %}
+<h2> Editar perfil </h2>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}

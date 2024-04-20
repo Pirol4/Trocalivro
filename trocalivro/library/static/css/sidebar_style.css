@@ -1,0 +1,49 @@
+.profile-sidebar {
+  font-family: 'Public Sans';
+  background: #90bdda;
+  width: 20%;
+  position: fixed; 
+  left: 10%; 
+  top: 50%;
+  transform: translateY(-50%); 
+  padding: 30px;
+  display: block;
+  border-radius: 20px;
+}
+
+.user-name{
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  text-align: center;
+  color: #283044;
+}
+
+.add-book-btn{
+  width: 200px;
+  height: 50px;
+  background: #283044;
+  border-radius: 50px;
+  color:#EBF5EE;
+  font-weight: 600;
+  text-align: center;
+  border: none;
+}
+
+.menu-container{
+  list-style: none;
+  padding-top: 5%;
+}
+
+.menu-heading {
+  padding-top: 5%;
+  font-weight: 700;
+  text-align: center;
+  color: #283044;
+}
+
+.menu-option{
+font-weight: 400;
+color: #283044;
+text-decoration: none;
+}

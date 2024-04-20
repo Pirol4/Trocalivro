@@ -1,5 +1,22 @@
-{% extends "base_generic.html" %}
-{% comment %} Exibir os livros que estão com o status de enviados {% endcomment %}
 {% block content %}
-<h1> Livros enviados </h1>
+{% include "profile_generic.html" %}
+<section class="profile-page">
+  <h2 class="page-title"> Solicitações enviadas </h2>
+  <div class="books-container">
+    {% for book in user_books %}  <!--MUDAR ISSO-->
+      <ul>  
+        <a href="{% url 'book-detail' id=book.id %}">
+          {% if book.image %}
+            {%load static %}
+            <img src="{%static book.image_display_url %}" alt="{{ book.title }}">
+        </a>
+          {% else %}
+              <p>No image available</p>
+          {% endif %}
+          <p>{{ book.title }}</p>
+          <p>{{book.author}}</p>
+      </ul>  
+    {% endfor %}
+</div>
+</section>
 {% endblock %}

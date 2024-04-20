@@ -1,21 +1,39 @@
 {% extends "base_generic.html" %}
 
+{% block top_bar_icons %}
+<li>
+    <div class="col-sm-2">
+      <div class="search-container">
+        <form class="search-box" method="get" action="search.html">
+            <input class="search-input" type="search" placeholder="Busque por livro ou autor" name="keyword"/>
+            <button class="search-button" title="Buscar livro">
+              <i>Buscar</i>
+            </button>
+        </form>
+    </div>
+</li>
+{% endblock %}
+
 {% block content %}
-  <h1>Trocalivro</h1>
-  <p>Nossos livros cadastrados:</p>
-  <ul>
-    <li><strong>Books:</strong> {{ num_books }}</li>
-    {% if book_list %}
-    <ul>
-        {% for book in book_list %}
-        <li>
-            <!-- Colocar imagens dos livros, etc -->
-            <a href="book/{{ book.id }}">{{ book.title }}</a>
-        </li>
-        {% endfor %}
-    </ul>
-    {% else %}
-        <p>There are no books in the library.</p>
-    {% endif %}
-    </ul>
+<div class="index-main-content">
+    <h2 class="page-title">Últimos livros cadastrados</h2>
+    <div class="books-container">
+       {% for book in book_list %}
+         <div class="user-book">  
+          <span class="book-owner">{{book.owner.firstname}}</span>
+          <span>quer trocar</span>
+           <a href="{% url 'book-detail' id=book.id %}">
+             {% if book.image %}
+               {%load static %}
+               <img src="{%static book.image_display_url %}" alt="{{ book.title }}">
+           </a>
+             {% else %}
+                 <p>No image available</p>
+             {% endif %}
+             <p class="book-title">{{ book.title }}</p>
+             <p class="book-author">{{book.author}}</p>
+         </div>  
+       {% endfor %}
+   </div>
+</div>
 {% endblock %}

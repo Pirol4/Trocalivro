@@ -14,25 +14,48 @@
       <p>Please login to see this page.</p>
     {% endif %}
   {% endif %}
+  
+  <div class="form">
+    
+      <div class="form-header">
+        
+          <div class="title">
+              <h1>Login</h1>
+              <p>Preencha seus dados</p>
+          </div>
+      
+      </div>
+  
+    <div class="input-field">
+      
+      <form action="{% url 'login' %}" method= "post">
+        {% csrf_token %}
+        <table>
+          
+          <div class="input-box">
+            <label for="username">Usuário</label>
+            {{ form.username }}
+          </div>
 
-  <form action="{% url 'login' %}" method= "post">
-    {% csrf_token %}
-    <table>
-      <tr>
-        <td>{{ form.username.label_tag }}</td>
-        <td>{{ form.username }}</td>
-      </tr>
-      <tr>
-        <td>{{ form.password.label_tag }}</td>
-        <td>{{ form.password }}</td>
-      </tr>
-    </table>
-    <input type="submit" value="Login" />
-    <input type="hidden" name="next" value="{{ next }}" />
-  </form>
-  <form method="post" action="{% url 'signup' %}">
-    {% csrf_token %}
-    <button type="submit">Cadastrar</button>
-  </form>
+          <div class="input-box">
+            <label for="password">Senha</label>
+            {{ form.password }}
+          </div>
+
+        </table>
+
+        <button type="submit">Login</button>
+        <input type="hidden" name="next" value="{{ next }}">
+      
+      </form>
+
+    </div>
+
+    <form method="post" action="{% url 'signup' %}">
+      {% csrf_token %}
+      <button type="submit">Cadastrar</button>
+    </form>
+    
+  </div>
 
 {% endblock %} 

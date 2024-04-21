@@ -4,4 +4,4 @@
 library/__pycache__/
 library/migrations/
 .env
-db.sqlite3
+/db.sqlite3

@@ -16,6 +16,7 @@ def display_book_image(book):
     if book.image:
         if book.image.url.startswith(image_path):
             return book.image.url.replace(image_path, '')
+        
     # se o livro nao tiver imagem associada, será exibida uma imagem padrão. A declarar
     return image_default_path
 

@@ -11,8 +11,9 @@
   <form action="{% url 'book-request' id=book_info.book.id %}" method="post">
     {% csrf_token %}
     {% if book_info.book.owner.firstname != book_info.user.firstname %}
-
-      <button class="request-book-btn" type="submit">Solicitar troca</button>
+      {%if book_info.book.status == 'AVAILABLE'%}
+        <button class="request-book-btn" type="submit">Solicitar troca</button>
+      {%endif%}
     {%endif%}
     </form>
 
@@ -25,7 +26,12 @@
     <p class="book-author">{{ book_info.book.author }}</p>
     <p>Descrição: {{ book_info.book.description }}</p>
     <p>Categoria: {{book_info.book.genre}}</p>
-    <p>Status: {{book_info.book.status}}</p>
+    {%if book_info.book.status == 'IN EXCHANGE'%}
+      <p>Status: Solicitado</p>
+    {%endif%}
+    {%if book_info.book.status == 'AVAILABLE'%}
+      <p>Status: Disponível</p>
+    {%endif%}
   </div>
 
 </div>

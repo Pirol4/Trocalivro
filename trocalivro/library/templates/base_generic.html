@@ -31,14 +31,18 @@
     </div>
         <div class="header-btns">
           {% if user.is_authenticated %}
-            <button class="primary-btn" type="button"><a href="{% url 'users-profile' %}">Perfil</a>
+            <button class="primary-btn" type="button"><a href="{% url 'users-profile' %}">
+              <i class="bi bi-person-circle"></i>
+            </a>
             </button>
             <form method="post" action="{% url 'logout' %}">
               {% csrf_token %}
-                <button class="secondary-btn" type="submit">Sair</button>
+                <button class="secondary-btn" type="submit"> 
+                  <i class="bi bi-box-arrow-right"></i>
+                </button>
             </form>
           {% else %}
-              <button class="primary-btn"><a href="{% url 'login' %}">Login</a></button>
+              <button class="login-btn" ><a href="{% url 'login' %}">Entrar</a></button>
           {% endif %}
           </div>
       {% endblock %}
@@ -47,14 +51,12 @@
 
   <div class="wrapper">{% block content %}{% endblock %}</div>
 
-  <!-- Rodapé -->
-  <footer>
-    
+  <!--rodapé-->
+  <!-- <footer>
     <div class="footer-content">
       <p id="copyright">© 2024 trocalivro</p>
     </div>
-    
-  </footer>
+  </footer> -->
 
 </body>
 </html>

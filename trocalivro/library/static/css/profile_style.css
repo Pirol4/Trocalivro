@@ -1,0 +1,11 @@
+.profile-page {
+  font-family: 'Public Sans';
+  position: relative;
+  width: 60%;
+  padding-left: 15%;
+}
+
+.page-title {
+  color: #283044;
+  font-weight: 600;
+}

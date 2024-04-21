@@ -27,6 +27,14 @@
   border: none;
 }
 
+.cover-container button:hover {
+  background-color: #576380;
+  color:#283044;
+  cursor: pointer;
+  transition: ease-in 0.2s;
+}
+
+
 .information-container{
   width: 60%;
   height: 100%;

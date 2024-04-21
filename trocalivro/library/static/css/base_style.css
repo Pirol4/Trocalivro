@@ -1,6 +1,11 @@
+body {
+  font-family: 'Public Sans', serif;
+}
+
 .wrapper {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding-top: 10%;
+  width: 100%;
+  padding-top: 7%;
 }

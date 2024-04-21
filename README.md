@@ -24,8 +24,8 @@ Seu funcionamento principal será com base em uma plataforma onde o usuário pod
 3. Como usuário, gostaria de cadastrar e gerenciar o cadastro uma livro para troca. 
 4. Como usuário, gostaria de pesquisar um livro.
 5. Como usuário, gostaria de solicitar uma troca de livro com outro usuario.
-**6. Como usuário, gostaria de ver as solicitações de troca enviadas.**
-**7. Como usuário, gostaria de ver as solicitações de troca recebidas.**
+6. Como usuário, gostaria de ver as solicitações de troca enviadas.
+7. Como usuário, gostaria de ver as solicitações de troca recebidas.
 8. Como usuário, gostaria de aceitar ou rejeitar uma troca de livro.
 9. Como usuário, gostaria de cancelar uma troca.
 10. Como usuário, gostaria de confirmar a finalização de uma troca.

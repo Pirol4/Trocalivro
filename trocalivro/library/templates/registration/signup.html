@@ -1,35 +1,6 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+{%extends "base_generic.html"%}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'css/signup_style.css' %}" />
-    <title>Cadastro</title>
-</head>
-
-<body>
-    <header>
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-sm-2">
-            {% block sidebar %}
-              <ul class="sidebar-nav">
-                <li><a href="{% url 'index' %}">Home</a></li>
-                {% if user.is_authenticated %}
-                  <li><a href="{% url 'users-profile' %}">Perfil</a></li>
-                {% else %}
-                  <li><a href="{% url 'login' %}">Login</a></li>
-                {% endif %}
-              </ul>
-            {% endblock %}
-          </div>
-        </div>
-      </div>
-    </header>
-
+{% block content%}
     <div class="container">
         <div class="form">
             <div class="form-header">
@@ -50,20 +21,8 @@
                         </div>
                     {% endfor %}
                 </div>
-                <div class="submit-button">
-                    <input type="submit" value="Enviar"></input>
-                </div>
+                    <input class="submit-button" type="submit" value="Enviar">
             </form>
         </div>
     </div>
-
-  <!--rodapé-->
-  <footer>
-    <div class="footer-content">
-      <p id="copyright">© 2024 trocalivro</p>
-    </div>
-  </footer>
-
-</body>
-
-</html>
+{% endblock %}

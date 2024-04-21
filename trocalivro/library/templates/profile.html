@@ -1,22 +1,27 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-  <h1>Name: {{ user.profile.firstname }}</h1>
-  {% if user.is_authenticated %}
-  <h5> Solicitações </h5>
-  <a href="{% url 'send-books' %}">Enviadas</a><br>
-  <a href="{% url 'received-books' %}">Recebidas</a>
-  <h5> Minha conta </h5>
-  <a href="{% url 'users-edit' %}">Editar perfil</a><br>
-  <a href="{% url 'users-profile' %}">Meus livros</a>
-  <form method="post" action="{% url 'logout' %}">
-    {% csrf_token %}
-    <button type="submit">Log Out</button>
-  </form>
-  {% endif %}
-  <h2>Meus livros</h2>
-    <form method="post" action="{% url 'book-add' %}">
-      {% csrf_token %}
-      <button type="submit">Adicionar Livro</button>
-    </form>
+{% include "profile_generic.html" %}
+<div class="profile-page">
+  <h2 class="page-title"> Meus livros </h2>
+  <div class="books-container-profile">
+      {% for book in user_books %}
+        <div class="user-book">  
+          {% if book.image %}
+          <a href="{% url 'book-detail' id=book.id %}">
+              {%load static %}
+              <img src="{%static book.image_display_url %}" alt="{{ book.title }}">
+           </a>
+             {% else %}
+             <a href="{% url 'book-detail' id=book.id %}">
+               {%load static %}
+               <img src="{%static 'images/no-image.png' %}" alt="No image available">
+             </a>
+            {% endif %}
+            <p class="book-title">{{ book.title }}</p>
+            <p class="book-author">{{book.author}}</p>
+        </div>  
+      {% endfor %}
+  </div>
+</div>
 {% endblock %}

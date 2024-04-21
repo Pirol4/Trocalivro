@@ -112,8 +112,6 @@ def book_add(request):
 def my_books(request):
     return render(request, 'profile.html')
 
-
-# Exibir todos os livros que foram solicitados pelo usuário  
 @login_required
 def send_books(request):
     # Instancia de todos os livros 
@@ -154,14 +152,14 @@ def received_books(request):
         user_books.append(book_info)
     
     
-    print(user_books)
+        
     # Para cada livro, atualiza a URL de exibição da imagem
     for book_info in user_books:
         book = book_info['book']
         book.image_display_url = display_book_image(book)
 
     user_books = list(reversed(user_books))
-
+    
     return render(request, 'received_books.html', {'user_books': user_books})
 
 
@@ -183,7 +181,6 @@ def book_detail_view(request, id):
         'book' : book,
         'user' : user_profile
     }
-
     return render(request, 'book_detail.html', context={'book_info': book_info})
 
 def search_book(request):
@@ -195,7 +192,7 @@ def search_book(request):
     else:
         books = []
     return render(request, 'index.html', {'book_list': books})
-
+    
 # Função responsável por tratar as trocas entre os livros 
 def request(request, id):
 

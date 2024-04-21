@@ -1,10 +1,18 @@
-.books-container {
+.books-container,
+.books-container-profile {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(3, 2fr);
   column-gap: 2%;
   row-gap: 20%;
   justify-content: left;
+}
+
+.books-container{
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.books-container-profile{
+  grid-template-columns: repeat(4, 1fr);
 }
 
 .user-book {

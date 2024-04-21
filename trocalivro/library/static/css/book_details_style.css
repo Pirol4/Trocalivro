@@ -28,7 +28,8 @@
 }
 
 .cover-container button:hover {
-  background-color: #576380;
+  background-color: #FFFFFF;
+  border: solid 1px #283044;
   color:#283044;
   cursor: pointer;
   transition: ease-in 0.2s;

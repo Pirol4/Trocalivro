@@ -9,7 +9,7 @@
 #### Tecnologias
 - Front-end: HTML, CSS, JavaScript
 - Back-end: Python com framework Django
-- Banco de Dados: MySQL
+- Banco de Dados: SQLite
 
 #### Objetivo do projeto e principais features
 
@@ -74,3 +74,67 @@ Seu funcionamento principal será com base em uma plataforma onde o usuário pod
     
     1. Implementar funcionalidade de pesquisar livros no frontend [Milena]
     2. Implementar funcionalidade de listar livros coerentes com a pesquisa no backend [Lucas&Ester]
+
+  ### Backlog da Sprint Revisado
+
+- História #1: Como usuário, gostaria de ver uma pagina principal com todos os livros.
+    
+    **Tarefas e responsáveis**:
+    
+    1. Criar setup Django [Ester]
+    2. Criar entidades principais do projeto [Ester]
+    3. Configurar banco de dados SQLite [Lucas]
+    4. Criar design de tela inicial no figma [Milena]
+    5. Criar tela inicial no frontend [Milena]
+    6. Implementar funcionalidade de ver os livros mais recentes na tela inicial no frontend [Milena]
+    7. Implementar funcionalidade de listar livros no backend [Lucas]
+
+    **Mudanças:** Não houveram.
+
+- História #2: Como usuário, gostaria de me cadastrar e gerenciar meu cadastro na plataforma.
+    
+    **Tarefas e responsáveis**:
+    
+    1. Criar tela de cadastro no figma [Filipe]
+    2. Criar tela de cadastro no frontend [Filipe]
+    3. Implementar funcionalidade de criar usuário no backend [Ester]
+    4. Implementar funcionalidade de editar usuário no backend [Ester]
+    5. Implementar funcionalidade de ler usuário no backend [Lucas]
+
+    **Mudanças:** Função de editar invés de excluir usuário.
+    
+- História #3: Como usuário, gostaria de cadastrar e gerenciar o cadastro uma livro para troca.
+    
+    **Tarefas e responsáveis**:
+    
+    1. Criar tela de cadastro de livro no figma [Filipe]
+    2. Criar tela de cadastro de livro no frontend [Filipe]
+    3. Implementar funcionalidade de cadastrar livro no backend [Lucas]
+    4. Implementar funcionalidade de ver livro cadastrado no backend [Ester]
+
+  **Mudanças:** Função de excluir livro excluído.
+
+- História #4: Como usuário, gostaria de pesquisar um livro.
+    
+    **Tarefas e responsáveis**:
+    
+    1. Implementar funcionalidade de pesquisar livros no frontend [Milena]
+    3. Implementar funcionalidade de listar livros coerentes com a pesquisa no backend [Lucas&Ester]
+
+  **Mudanças:** Não houve.
+
+- História #5: Como usuário, gostaria de solicitar uma troca de livro com outro usuario.
+
+  **Tarefas e responsáveis**:
+    
+    1. Implementar funcionalidade de solicitar livros no frontend [Milena]
+    2. Implementar funcionalidade de solicitar livros no backend [Lucas]
+
+  **Mudanças:** História adicionada do backlog do produto.
+ 
+  ### UMLs
+    ![image](https://github.com/estersassis/Trocalivro/assets/71738908/1032dc6b-6880-4ace-8fdb-b10dede7f112)
+    ![image](https://github.com/estersassis/Trocalivro/assets/71738908/7ba722c7-ef57-407c-8284-50847142b42b)
+
+  
+  

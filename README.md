@@ -136,5 +136,11 @@ Seu funcionamento principal será com base em uma plataforma onde o usuário pod
     ![image](https://github.com/estersassis/Trocalivro/assets/71738908/1032dc6b-6880-4ace-8fdb-b10dede7f112)
     ![image](https://github.com/estersassis/Trocalivro/assets/71738908/7ba722c7-ef57-407c-8284-50847142b42b)
 
-  
-  
+  ### Guia de Execução
+
+    ```
+    pip3 install -r requirements.txt # Baixar bibliotecas
+    python trocalivro/manage.py makemigrations # Migrar banco
+    python trocalivro/manage.py migrate # Migrar itens
+    python trocalivro/manage.py runserver # Rodar server
+    ```

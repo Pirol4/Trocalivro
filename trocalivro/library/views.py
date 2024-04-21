@@ -147,7 +147,7 @@ def received_books(request):
         # Dicionario com o livro do usuário que foi requerido e o nome do usuário que solicitou. 
         book_info = {
             'book': exchange.book,
-            'requester_name': exchange.requester.user.username,
+            'requester_name': exchange.requester.user.profile.firstname,
         }
         user_books.append(book_info)
     

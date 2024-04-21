@@ -2,7 +2,9 @@
   font-family: 'Public Sans';
   background: #ccd9e2;
   width: 20%;
-  /* position: fixed;  */
+  position: fixed; 
+  left: 0;
+  margin-left: 10%;
   padding: 30px;
   display: grid;
   place-items: left;
@@ -28,6 +30,13 @@
   border: none;
 }
 
+.add-book-btn:hover {
+  background-color: #FFFFFF;
+  color:#283044;
+  cursor: pointer;
+  transition: ease-in 0.2s;
+}
+
 .menu-container{
   list-style: none;
   padding-top: 5%;
@@ -44,4 +53,12 @@
 font-weight: 400;
 color: #283044;
 text-decoration: none;
+}
+
+.menu-option:hover {
+  font-weight: 400;
+  color: #576380;
+  text-decoration: none;
+  cursor: pointer;
+  transition: ease-in 0.2s;
 }

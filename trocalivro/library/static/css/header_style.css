@@ -8,7 +8,7 @@ header {
     display: flex;
     justify-content: space-evenly;
     padding: 1%;
-    position: absolute;
+    position: fixed;
     z-index: 1;
     align-items: center;
 }
@@ -59,8 +59,23 @@ header {
     margin-right: 10px;
 }
 
+.primary-btn:hover {
+    background-color: #576380;
+    color:#283044;
+    cursor: pointer;
+    transition: ease-in 0.2s;
+}
+
+.secondary-btn:hover {
+    background-color: #FFFFFF;
+    color:#283044;
+    cursor: pointer;
+    transition: ease-in 0.2s;
+}
+
 .primary-btn a{
     text-decoration: none;
+    color: #FFFFFF;
 }
 
 .secondary-btn {

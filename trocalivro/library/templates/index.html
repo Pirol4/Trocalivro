@@ -12,13 +12,14 @@
          <div class="user-book">  
           <span class="book-owner">{{book.owner.firstname}}</span>
           <span>quer trocar</span>
+          {% if book.image %}
            <a href="{% url 'book-detail' id=book.id %}">
-             {% if book.image %}
                {%load static %}
                <img src="{%static book.image_display_url %}" alt="{{ book.title }}">
            </a>
              {% else %}
-                 <p>No image available</p>
+             {%load static %}
+             <img src="{%static 'images/book-cover-generic.jpg' %}" alt="{{ book.title }}">
              {% endif %}
              <p class="book-title">{{ book.title }}</p>
              <p class="book-author">{{book.author}}</p>

@@ -1,4 +1,4 @@
-# Trocalivro
+![image](https://github.com/estersassis/Trocalivro/assets/71738908/f3503cd7-a636-4b4a-ac35-43c8a153666a)
 
 #### Membros:
 - Ester Sara Assis Silva (Back-end, BD)

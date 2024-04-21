@@ -1,7 +1,4 @@
 {% extends "base_generic.html" %}
-{% comment %}
-Pagina para adicionar livro, criar um form aqui
-view book_add {% endcomment %}
 {% block content %}
 <section class="add-book">
         
@@ -41,12 +38,8 @@ view book_add {% endcomment %}
                 <label for="id_picture">Imagem</label>
                 {{ form.image }}
             </div>
-            
-            <div class="input-box">
-                <label for="id_status">Status</label>
-                {{ form.status }}
-            </div>
-            
+            {% comment %} Foi retirado o campo de definição do status {% endcomment %}
+
             <button type="submit">Enviar</button>
         
         </form>

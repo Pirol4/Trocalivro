@@ -5,10 +5,8 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from enum import Enum
-from datetime import datetime
-import uuid
 
-
+# Modificado valores do Enum para maiusculo para casar com as informações no frontend
 class StatusBook(Enum):
   AVAILABLE = 'AVAILABLE'
   IN_EXCHANGE = 'IN EXCHANGE'
@@ -33,11 +31,6 @@ class Profile(models.Model):
   def save_user_profile(sender, instance, **kwargs):
       instance.profile.save()
     
-  # @receiver(post_save, sender=User)
-  # def update_user_profile(sender, instance, created, **kwargs):
-  #   if created:
-  #       Profile.objects.create(user=instance)
-  #   instance.profile.save()
 
 class Book(models.Model):
   title = models.CharField(max_length = 255)
@@ -54,13 +47,14 @@ class Book(models.Model):
     return reverse('book-detail', args=[str(self.id)])
 
 
-
+# Tabela que irá armazenar as informações das trocas entre os usuários.
 class BookExchange(models.Model):
+    # Basicamente uma tabela com chaves estrangeiras que será usada para consultar as interações entre os usuários
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
     requester = models.ForeignKey(Profile, related_name='requested_books', on_delete=models.CASCADE)
     owner = models.ForeignKey(Profile, related_name='owned_books', on_delete=models.CASCADE)
     status = models.CharField(max_length=20, choices=[(tag.name, tag.value) for tag in StatusBook])
-    # message = models.TextField(default="")
+    
 
     def save(self, *args, **kwargs):
         # Atualiza o status do livro com base no status da troca

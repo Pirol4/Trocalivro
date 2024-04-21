@@ -4,18 +4,21 @@
 <section class="profile-page">
   <h2 class="page-title"> Solicitações recebidas </h2>
   <div class="books-container">
-    {% for book in user_books %} <!--MUDAR ISSO-->
+
+    {% for book_info in user_books %} <!--MUDAR ISSO-->
       <ul>  
-        <a href="{% url 'book-detail' id=book.id %}">
-          {% if book.image %}
+        <p>{{book_info.requester_name}} Solicitou:</p>
+        <a href="{% url 'book-detail' id=book_info.book.id %}">
+          {% if book_info.book.image %}
             {%load static %}
-            <img src="{%static book.image_display_url %}" alt="{{ book.title }}">
+            <img src="{%static book_info.book.image_display_url %}" alt="{{ book_info.book.title }}">
         </a>
           {% else %}
               <p>No image available</p>
           {% endif %}
-          <p>{{ book.title }}</p>
-          <p>{{book.author}}</p>
+          <p>{{book_info.book.title}}</p>
+          <p>{{book_info.book.author}}</p>
+          
       </ul>  
     {% endfor %}
 </div>

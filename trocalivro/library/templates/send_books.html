@@ -6,6 +6,7 @@
   <div class="books-container">
     {% for book in user_books %}  <!--MUDAR ISSO-->
       <ul>  
+        <p>Você Solicitou de {{book.owner.firstname}}:</p>
         <a href="{% url 'book-detail' id=book.id %}">
           {% if book.image %}
             {%load static %}
@@ -15,9 +16,9 @@
               <p>No image available</p>
           {% endif %}
           <p>{{ book.title }}</p>
-          <p>{{book.author}}</p>
+          <p>{{ book.author }}</p>
       </ul>  
     {% endfor %}
-</div>
+  </div>
 </section>
 {% endblock %}

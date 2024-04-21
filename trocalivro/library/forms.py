@@ -20,7 +20,8 @@ class SignUpForm(UserCreationForm):
 class BookForm(forms.ModelForm):
     class Meta:
         model = Book
-        fields = ('title', 'description','genre', 'author', 'image', 'status' )
+        # Foi retirado o campo de status do formulário e definido automaticamente no backend
+        fields = ('title', 'description','genre', 'author', 'image')
     
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

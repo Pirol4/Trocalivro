@@ -23,16 +23,18 @@ Seu funcionamento principal será com base em uma plataforma onde o usuário pod
 2. Como usuário, gostaria de me cadastrar e gerenciar meu cadastro na plataforma. 
 3. Como usuário, gostaria de cadastrar e gerenciar o cadastro uma livro para troca. 
 4. Como usuário, gostaria de pesquisar um livro.
-5. Como usuário, gostaria de solicitar uma troca de livro com outro usuario. 
-6. Como usuário, gostaria de aceitar ou rejeitar uma troca de livro.
-7. Como usuário, gostaria de cancelar uma troca.
-8. Como usuário, gostaria de confirmar a finalização de uma troca.
-9. Como usuário, gostaria de ver o status da minha troca.
-10. Como usuário, gostaria de avaliar uma troca.
-11. Como usuário, gostaria de ver o historico de trocas de livros.
-12. Como usuário, gostaria de receber notificacao de uma possivel troca por email.
-13. Como administrador, gostaria de excluir um usuário.
-14. Como administrador, gostaria de excluir um livro.
+5. Como usuário, gostaria de solicitar uma troca de livro com outro usuario.
+**6. Como usuário, gostaria de ver as solicitações de troca enviadas.**
+**7. Como usuário, gostaria de ver as solicitações de troca recebidas.**
+8. Como usuário, gostaria de aceitar ou rejeitar uma troca de livro.
+9. Como usuário, gostaria de cancelar uma troca.
+10. Como usuário, gostaria de confirmar a finalização de uma troca.
+11. Como usuário, gostaria de ver o status da minha troca.
+12. Como usuário, gostaria de avaliar uma troca.
+13. Como usuário, gostaria de ver o historico de trocas de livros.
+14. Como usuário, gostaria de receber notificacao de uma possivel troca por email.
+15. Como administrador, gostaria de excluir um usuário.
+16. Como administrador, gostaria de excluir um livro.
 
 ### Backlog da Sprint
 
@@ -129,6 +131,24 @@ Seu funcionamento principal será com base em uma plataforma onde o usuário pod
     
     1. Implementar funcionalidade de solicitar livros no frontend [Milena]
     2. Implementar funcionalidade de solicitar livros no backend [Lucas]
+
+  **Mudanças:** História adicionada do backlog do produto.
+
+ História #6: Como usuário, gostaria de ver as solicitações de troca enviadas.
+
+  **Tarefas e responsáveis**:
+    
+    1. Implementar funcionalidade de ver solicitação de livros enviadas no frontend [Milena]
+    2. Implementar funcionalidade de ver solicitação de livros enviadas no backend [Lucas]
+
+  **Mudanças:** História adicionada do backlog do produto.
+
+ História #6: Como usuário, gostaria de ver as solicitações de troca recebidas.
+
+  **Tarefas e responsáveis**:
+    
+    1. Implementar funcionalidade de ver solicitação de livros recebidas no frontend [Milena]
+    2. Implementar funcionalidade de ver solicitação de livros recebidas no backend [Lucas]
 
   **Mudanças:** História adicionada do backlog do produto.
  

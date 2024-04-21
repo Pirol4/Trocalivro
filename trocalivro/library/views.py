@@ -28,6 +28,8 @@ def index(request):
     for book in book_list:
        book.image_display_url = display_book_image(book) 
 
+    book_list = list(reversed(book_list))
+
     context = {
         'num_books': num_books,
         'book_list': book_list
@@ -65,6 +67,8 @@ def profile(request):
 
     for book in user_books:
         book.image_display_url = display_book_image(book)
+
+    user_books = list(reversed(user_books))
 
     return render(request, 'profile.html', {'user_books': user_books})
 
@@ -129,6 +133,8 @@ def send_books(request):
     for book in user_books:
         book.image_display_url = display_book_image(book)
 
+    user_books = list(reversed(user_books))
+
     # Exibir no front a lista que tem as solicitações de troca do usuário 
     return render(request, 'send_books.html', {'user_books': user_books})
 
@@ -152,12 +158,14 @@ def received_books(request):
         user_books.append(book_info)
     
     
-    print(user_books)
+        
     # Para cada livro, atualiza a URL de exibição da imagem
     for book_info in user_books:
         book = book_info['book']
         book.image_display_url = display_book_image(book)
 
+    user_books = list(reversed(user_books))
+    
     return render(request, 'received_books.html', {'user_books': user_books})
 
 

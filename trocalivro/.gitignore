@@ -1,7 +1,0 @@
-*.log
-*.pot
-*.pyc
-library/__pycache__/
-library/migrations/
-.env
-*.sqlite3

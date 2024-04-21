@@ -6,7 +6,8 @@
     {%load static %}
     <img src="{%static book_info.book.image_display_url %}" alt="{{ book_info.book.title }}">
   {% else %}
-    <p>No image available</p>
+    {%load static %}
+    <img src="{%static 'images/no-image.png' %}" alt="No image available">
   {% endif %}
   <form action="{% url 'book-request' id=book_info.book.id %}" method="post">
     {% csrf_token %}

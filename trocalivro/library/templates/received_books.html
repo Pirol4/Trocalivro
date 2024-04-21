@@ -15,7 +15,10 @@
           <img src="{%static book_info.book.image_display_url %}" alt="{{ book_info.book.title }}">
       </a>
         {% else %}
-            <p>No image available</p>
+        <a href="{% url 'book-detail' id=book.id %}">
+          {%load static %}
+          <img src="{%static 'images/no-image.png' %}" alt="No image available">
+        </a>
         {% endif %}
         <p class="book-title">{{book_info.book.title}}</p>
         <p class="book-author">{{book_info.book.author}}</p>

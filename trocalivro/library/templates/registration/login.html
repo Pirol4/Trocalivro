@@ -20,7 +20,7 @@
       <div class="form-header">
         
           <div class="title">
-              <h1>Login</h1>
+              <h1>Entrar</h1>
               <p>Preencha seus dados</p>
           </div>
       
@@ -44,7 +44,7 @@
 
         </table>
 
-        <button type="submit">Login</button>
+        <button class="submit-button" type="submit">Login</button>
         <input type="hidden" name="next" value="{{ next }}">
       
       </form>
@@ -53,7 +53,7 @@
 
     <form method="post" action="{% url 'signup' %}">
       {% csrf_token %}
-      <button type="submit">Cadastrar</button>
+      <button class="submit-button" type="submit">Cadastrar</button>
     </form>
     
   </div>

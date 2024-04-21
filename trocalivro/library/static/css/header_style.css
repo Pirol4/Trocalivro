@@ -59,6 +59,7 @@ header {
     margin-right: 10px;
 }
 
+<<<<<<< HEAD
 .primary-btn:hover {
     background-color: #576380;
     color:#283044;
@@ -71,6 +72,27 @@ header {
     color:#283044;
     cursor: pointer;
     transition: ease-in 0.2s;
+=======
+.logo-link {
+    text-decoration: none;
+    color: unset;
+}
+
+.sidebar-nav {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar-nav li {
+    display: inline-block;
+    margin: 0 10px;
+    margin-right: 30px;
+}
+
+.sidebar-nav li a {
+    color: #FFFFFF;
+    font-size: 24px;
+>>>>>>> origin/lucas-branch
 }
 
 .primary-btn a{
@@ -78,6 +100,33 @@ header {
     color: #FFFFFF;
 }
 
+.sidebar-nav li a:hover {
+    text-decoration: underline;
+}
+
+.search-box {
+    display: inline-flex;
+}
+
+.search-input {
+    width: 500px;
+    padding: 3px;
+}
+
+.container-fluid {
+    float: left;
+}
+
+.search-button {
+    padding: 0;
+    margin: 0;
+    width: 60px;
+    margin-left: 3px;
+}
+
+.topbar-button {
+    padding: 20px;
+}
 .secondary-btn {
     width: 100px;
     height: 40px;

@@ -1,0 +1,34 @@
+.input-box {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+}
+
+.input-box input {
+    width: 100%;
+    margin: 0.6rem 0;
+    padding: 0.8rem 0.5rem;
+    border: none;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    color: #000000;
+}
+
+.input-box input:hover {
+    background-color: #eeeeee75;
+}
+
+.input-box input:focus-visible {
+    outline: 1.5px solid #BFA89E;
+}
+
+.input-box label {
+    text-align: left; 
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #FFFFFF;
+}
+
+.input-box input::placeholder {
+    color: #000000be;
+}

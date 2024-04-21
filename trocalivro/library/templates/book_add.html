@@ -1,39 +1,50 @@
 {% extends "base_generic.html" %}
-{% comment %}
-Pagina para adicionar livro, criar um form aqui
-view book_add {% endcomment %}
 {% block content %}
 <section class="add-book">
-    <div>
-        <h2> Adicionar Livro </h2>
+        
+    <div class="form">
+        
+        <div class="form-header">
+            <div class="title">
+                <h1>Adicione um livro</h1>
+                <p>Preencha todos os dados</p>
+            </div>
+        </div>
+
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
-            <div class="form-field">
-                <label for="id_name">Título:</label>
+            
+            <div class="input-box">
+                <label for="id_name">Título</label>
                 {{ form.title }}
             </div>
-            <div class="form-field">
-                <label for="id_name">Autor:</label>
+            
+            <div class="input-box">
+                <label for="id_author">Autor</label>
                 {{ form.author }}
             </div>
-            <div class="form-field">
-                <label for="id_description">Descrição:</label>
+
+            <div class="input-box">
+                <label for="id_description">Descrição</label>
                 {{ form.description }}
             </div>
-            <div class="form-field">
-                <label for="id_tag">Categoria:</label>
+
+            <div class="input-box">
+                <label for="id_tag">Categoria</label>
                 {{ form.genre }}
             </div>
-            <div class="form-field">
-                <label for="id_picture">Imagem:</label>
+
+            <div class="input-box">
+                <label for="id_picture">Imagem</label>
                 {{ form.image }}
             </div>
-            <div class="form-field">
-                <label for="id_status">Status:</label>
-                {{ form.status }}
-            </div>
+            {% comment %} Foi retirado o campo de definição do status {% endcomment %}
+
             <button type="submit">Enviar</button>
+        
         </form>
+    
     </div>
+
 </section>
 {% endblock %}

@@ -2,23 +2,30 @@
 {% block content %}
 <div class="book-details-wrapper">
   <div class="cover-container">
-    {% if book.image %}
+    {% if book_info.book.image %}
     {%load static %}
-    <img src="{%static book.image_display_url %}" alt="{{ book.title }}">
+    <img src="{%static book_info.book.image_display_url %}" alt="{{ book_info.book.title }}">
   {% else %}
     <p>No image available</p>
   {% endif %}
-  <button class="request-book-btn"><a href="">Solicitar troca</a></button>
-  </div>
+  <form action="{% url 'book-request' id=book_info.book.id %}" method="post">
+    {% csrf_token %}
+    {% if book_info.book.owner.firstname != book_info.user.firstname %}
+
+      <button class="request-book-btn" type="submit">Solicitar troca</button>
+    {%endif%}
+    </form>
+
+</div>
 
   <div class="information-container">
-    <span class="book-owner">{{book.owner.firstname}}</span>
+    <span class="book-owner">{{book_info.book.owner.firstname}}</span>
     <span>quer trocar</span>
-    <h2>{{ book.title }}</h2>
-    <p class="book-author">{{ book.author }}</p>
-    <p>Descrição: {{ book.description }}</p>
-    <p>Categoria: {{book.genre}}</p>
-    <p>Status: {{book.status}}</p>
+    <h2>{{ book_info.book.title }}</h2>
+    <p class="book-author">{{ book_info.book.author }}</p>
+    <p>Descrição: {{ book_info.book.description }}</p>
+    <p>Categoria: {{book_info.book.genre}}</p>
+    <p>Status: {{book_info.book.status}}</p>
   </div>
 
 </div>

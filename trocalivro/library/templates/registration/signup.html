@@ -2,12 +2,12 @@
 <html lang="pt-br">
 
 <head>
+    {% block title %}<title>trocalivro</title>{% endblock %}
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/signup_style.css' %}" />
-    <title>Cadastro</title>
 </head>
 
 <body>
@@ -17,26 +17,23 @@
           <img src="{% static 'images/logo.png' %}" alt="Logo">
         </div>
         <div class="logo-texto">
-          <h1>trocalivro</h1>
-        </div> 
+          <h1 class="site-logo"><a class="logo-link" href="{% url 'index' %}">trocalivro</a></h1>
+        </div>
       </div>
       
       <div class="container-fluid">
         <div class="row">
-          <div class="col-sm-2">
             {% block sidebar %}
               <ul class="sidebar-nav">
-                <li><a href="{% url 'index' %}">Home</a></li>
                 {% if user.is_authenticated %}
-                  <li><a href="{% url 'users-profile' %}">Perfil</a></li>
+                <li><a href="{% url 'users-profile' %}">Perfil</a></li>
                 {% else %}
-                  <li><a href="{% url 'login' %}">Login</a></li>
+                  <li><a class="topbar-button" href="{% url 'login' %}">Login</a></li>
                 {% endif %}
               </ul>
             {% endblock %}
           </div>
         </div>
-      </div>
     </header>
 
     <div class="container">
@@ -60,7 +57,7 @@
                     {% endfor %}
                 </div>
                 <div class="submit-button">
-                    <input type="submit" value="Enviar"></input>
+                    <input type="submit" value="Enviar">
                 </div>
             </form>
         </div>

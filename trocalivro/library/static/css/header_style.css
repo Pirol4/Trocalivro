@@ -100,4 +100,31 @@ header {
     padding: 20px;
 } */
 
+.login-btn {
+    width: 100px;
+    height: 40px;
+    background: #282828;
+    border-radius: 30px;
+    color:#FFFFFF;
+    font-weight: 600;
+    text-align: center;
+    border: none;
+}
+
+.login-btn a {
+    text-decoration: none;
+}
+
+.login-btn a:visited{
+    color: inherit;
+}
+
+.login-btn:hover {
+    background-color: #FFFFFF;
+    color: #283044;
+    border: solid 1px;
+    border-color: #FFFFFF;
+    cursor: pointer;
+    transition: ease-in 0.2s;
+}
 

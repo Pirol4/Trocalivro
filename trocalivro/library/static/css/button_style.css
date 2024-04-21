@@ -17,3 +17,22 @@
 .submit-button:hover {
     background-color: #8B786D;
 }
+
+.input-profile-btn {
+    width: 25%;
+    height: 50px;
+    background: #283044;
+    border-radius: 50px;
+    color:#EBF5EE;
+    font-weight: 600;
+    text-align: center;
+    border: none;
+}
+
+.input-profile-btn:hover {
+    border: solid 1px #283044;
+    background-color: #FFFFFF;
+    color:#283044;
+    cursor: pointer;
+    transition: ease-in 0.2s;
+}

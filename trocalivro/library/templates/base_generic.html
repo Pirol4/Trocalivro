@@ -38,11 +38,11 @@
             <form method="post" action="{% url 'logout' %}">
               {% csrf_token %}
                 <button class="secondary-btn" type="submit"> 
-                  <i class="bi bi-box-arrow-left"></i>
+                  <i class="bi bi-box-arrow-right"></i>
                 </button>
             </form>
           {% else %}
-              <button class="primary-btn"><a href="{% url 'login' %}">Login</a></button>
+              <button class="login-btn" ><a href="{% url 'login' %}">Entrar</a></button>
           {% endif %}
           </div>
       {% endblock %}

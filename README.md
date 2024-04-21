@@ -134,27 +134,25 @@ Seu funcionamento principal será com base em uma plataforma onde o usuário pod
 
   **Mudanças:** História adicionada do backlog do produto.
 
- História #6: Como usuário, gostaria de ver as solicitações de troca enviadas.
+ - História #6: Como usuário, gostaria de ver as solicitações de troca enviadas.
 
   **Tarefas e responsáveis**:
-    
     1. Implementar funcionalidade de ver solicitação de livros enviadas no frontend [Milena]
     2. Implementar funcionalidade de ver solicitação de livros enviadas no backend [Lucas]
 
   **Mudanças:** História adicionada do backlog do produto.
 
- História #6: Como usuário, gostaria de ver as solicitações de troca recebidas.
+ - História #7: Como usuário, gostaria de ver as solicitações de troca recebidas.
 
   **Tarefas e responsáveis**:
-    
     1. Implementar funcionalidade de ver solicitação de livros recebidas no frontend [Milena]
     2. Implementar funcionalidade de ver solicitação de livros recebidas no backend [Lucas]
 
   **Mudanças:** História adicionada do backlog do produto.
  
   ### UMLs
-    ![image](https://github.com/estersassis/Trocalivro/assets/71738908/1032dc6b-6880-4ace-8fdb-b10dede7f112)
-    ![image](https://github.com/estersassis/Trocalivro/assets/71738908/7ba722c7-ef57-407c-8284-50847142b42b)
+![image](https://github.com/estersassis/Trocalivro/assets/71738908/1032dc6b-6880-4ace-8fdb-b10dede7f112)
+![image](https://github.com/estersassis/Trocalivro/assets/71738908/7ba722c7-ef57-407c-8284-50847142b42b)
 
   ### Guia de Execução
 

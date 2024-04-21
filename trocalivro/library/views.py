@@ -16,6 +16,7 @@ def display_book_image(book):
     if book.image:
         if book.image.url.startswith(image_path):
             return book.image.url.replace(image_path, '')
+        
     # se o livro nao tiver imagem associada, será exibida uma imagem padrão. A declarar
     return image_default_path
 
@@ -27,6 +28,8 @@ def index(request):
     # Instanciado função para exibir a imagem dos livros
     for book in book_list:
        book.image_display_url = display_book_image(book) 
+
+    book_list = list(reversed(book_list))
 
     context = {
         'num_books': num_books,
@@ -61,6 +64,8 @@ def profile(request):
 
     for book in user_books:
         book.image_display_url = display_book_image(book)
+
+    user_books = list(reversed(user_books))
 
     return render(request, 'profile.html', {'user_books': user_books})
 
@@ -124,6 +129,8 @@ def send_books(request):
     for book in user_books:
         book.image_display_url = display_book_image(book)
 
+    user_books = list(reversed(user_books))
+
     # Exibir no front a lista que tem as solicitações de troca do usuário 
     return render(request, 'send_books.html', {'user_books': user_books})
 
@@ -152,6 +159,8 @@ def received_books(request):
     for book_info in user_books:
         book = book_info['book']
         book.image_display_url = display_book_image(book)
+
+    user_books = list(reversed(user_books))
 
     return render(request, 'received_books.html', {'user_books': user_books})
 

@@ -25,7 +25,12 @@
     <p class="book-author">{{ book_info.book.author }}</p>
     <p>Descrição: {{ book_info.book.description }}</p>
     <p>Categoria: {{book_info.book.genre}}</p>
-    <p>Status: {{book_info.book.status}}</p>
+    {%if book_info.book.status == 'IN EXCHANGE'%}
+      <p>Status: Solicitado</p>
+    {%endif%}
+    {%if book_info.book.status == 'AVAILABLE'%}
+      <p>Status: Disponível</p>
+    {%endif%}
   </div>
 
 </div>

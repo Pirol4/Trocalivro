@@ -11,8 +11,9 @@
   <form action="{% url 'book-request' id=book_info.book.id %}" method="post">
     {% csrf_token %}
     {% if book_info.book.owner.firstname != book_info.user.firstname %}
-
-      <button class="request-book-btn" type="submit">Solicitar troca</button>
+      {%if book_info.book.status == 'AVAILABLE'%}
+        <button class="request-book-btn" type="submit">Solicitar troca</button>
+      {%endif%}
     {%endif%}
     </form>
 

@@ -39,7 +39,8 @@
   color:#283044;
 }
 
-.book-owner {
+.book-owner,
+.book-request {
   font-weight: 700;
   color: #283044;
 }

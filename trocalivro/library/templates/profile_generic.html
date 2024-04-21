@@ -17,11 +17,31 @@
       <div class="menu-container">
         {% if user.is_authenticated %}
           <p class="menu-heading">Solicitações</p>
-          <li><a class="menu-option" href="{% url 'send-books' %}">Enviadas</a></li>
-          <li><a class="menu-option" href="{% url 'received-books' %}">Recebidas</a></li>
+          <li>
+            <a class="menu-option" href="{% url 'send-books' %}">
+              <i class="bi bi-box-arrow-left"></i>
+              Enviadas
+            </a>
+          </li>
+          <li>
+            <a class="menu-option" href="{% url 'received-books' %}">
+              <i class="bi bi-box-arrow-right"></i>
+              Recebidas
+            </a>
+          </li>
           <p class="menu-heading"> Minha conta </p>
-          <li><a class="menu-option" href="{% url 'users-edit' %}">Editar perfil</a></li>
-          <li><a class="menu-option" href="{% url 'users-profile' %}">Meus livros</a></li>
+          <li>
+            <a class="menu-option" href="{% url 'users-edit' %}">
+              <i class="bi bi-person"></i>
+              Editar perfil
+            </a>
+          </li>
+          <li>
+            <a class="menu-option" href="{% url 'users-profile' %}">
+              <i class="bi bi-bookmark-heart"></i>
+              Meus livros
+          </a>
+          </li>
           {% endif %}
       </div>
     </div>

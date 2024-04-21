@@ -59,7 +59,6 @@ header {
     margin-right: 10px;
 }
 
-<<<<<<< HEAD
 .primary-btn:hover {
     background-color: #576380;
     color:#283044;
@@ -72,27 +71,6 @@ header {
     color:#283044;
     cursor: pointer;
     transition: ease-in 0.2s;
-=======
-.logo-link {
-    text-decoration: none;
-    color: unset;
-}
-
-.sidebar-nav {
-    list-style-type: none;
-    padding: 0;
-}
-
-.sidebar-nav li {
-    display: inline-block;
-    margin: 0 10px;
-    margin-right: 30px;
-}
-
-.sidebar-nav li a {
-    color: #FFFFFF;
-    font-size: 24px;
->>>>>>> origin/lucas-branch
 }
 
 .primary-btn a{

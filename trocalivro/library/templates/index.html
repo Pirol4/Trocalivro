@@ -1,18 +1,5 @@
 {% extends "base_generic.html" %}
 
-{% block top_bar_icons %}
-<li>
-    <div class="col-sm-2">
-      <div class="search-container">
-        <form class="search-box" method="get" action="search.html">
-            <input class="search-input" type="search" placeholder="Busque por livro ou autor" name="keyword"/>
-            <button class="search-button" title="Buscar livro">
-              <i>Buscar</i>
-            </button>
-        </form>
-    </div>
-</li>
-{% endblock %}
 
 {% block content %}
 <!-- <div class="index-card">
@@ -30,11 +17,11 @@
            <a href="{% url 'book-detail' id=book.id %}">
                {%load static %}
                <img src="{%static book.image_display_url %}" alt="{{ book.title }}">
-           </a>
-             {% else %}
-             {%load static %}
-             <img src="{%static 'images/book-cover-generic.jpg' %}" alt="{{ book.title }}">
+              {% else %}
+                {%load static %}
+                <img src="{%static 'images/no-image.png' %}" alt="No image available">
              {% endif %}
+           </a>
              <p class="book-title">{{ book.title }}</p>
              <p class="book-author">{{book.author}}</p>
          </div>  
